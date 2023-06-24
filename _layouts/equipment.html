@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<header class="w3-center w3-bottombar w3-margin-bottom">
+    <h1>{{ page.manufacturer }} {{ page.model }}</h1>
+</header>
+
+
+<div class="w3-row-padding w3-margin-bottom">
+    {% if page.image %}
+    <div class="w3-quarter">
+        <img style="width: 100%;" src="{{site.baseurl}}{{page.image}}" alt="{{ page.manufacturer }} {{ page.model }}">
+    </div>
+    {% endif %}
+    <div {% if page.image %}class="w3-threequarter"{% endif %}>
+        <a id="{{page.uid}}"></a>
+        <table class="w3-table">
+            <thead>
+                <td class="w3-center w3-large">Information</td>
+            </thead>
+        </table>
+        <table class="w3-table-all">
+            {% for field in page %}
+            {% assign name = field %}
+            {% if 
+                name == "uid" 
+                or name == "device" 
+                or name == "image" 
+                or name == "collection"
+                or name == "url"
+                or name == "content"
+                or name == "relative_path"
+                or name == "excerpt"
+                or name == "output"
+                or name == "previous"
+                or name == "id"
+                or name == "date"
+                or name == "next"
+                or name == "path"
+                or name == "draft"
+                or name == "categories"
+                or name == "layout"
+                or name == "ext"
+                or name == "tags"
+                or name == "slug"
+                or name == "title"
+                or name == "type"
+            %}
+            {% else %}
+            <tr>
+                <td>{{ name | capitalize }}</td>
+                <td class="align-right">
+                    {% assign data = page[field] %}
+                    {% include table_data.html value=data %}
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<article>
+    {{ page.content }}
+</article>

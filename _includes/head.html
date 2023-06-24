@@ -1,0 +1,13 @@
+{% if page.title %}
+<title>{{ page.title }} | {{ site.title }}</title>
+{% else %}
+<title>{{ site.title }}</title>
+{% endif %}
+<meta charset="UTF-8">
+<meta name="description" content="{{ site.description }}">
+<meta name="author" content="{{ site.author }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{site.baseurl}}/css/w3.css">
+<link rel="stylesheet" href="{{site.baseurl}}/css/site.css">
+<link rel="stylesheet" href="{{site.baseurl}}/css/code.css">
+<link rel="stylesheet" href="{{site.baseurl}}/css/theme.css">

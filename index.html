@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="w3-margin-top" style="padding-top: 32px; width: 640px; max-width: 100%; margin-left: auto; margin-right: auto;">
+    <div class="w3-round-xlarge w3-padding panel">
+        <h1 class="w3-center">Colin's {{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+        <div class="w3-margin-bottom">
+            <h3 class="w3-center">Recent Photos</h3>
+            <div class="horizontal-gallery">
+                {% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | sort: 'date' | reverse %}
+                {% for photo in all_photos limit:6 %}
+                <div class="image w3-display-container">
+                    {% include thumbnail.html photo=photo %}
+                    <a href="{{site.baseurl}}{{photo.url}}" class="w3-display-middle w3-center">
+                        {{ photo.title }}<br>
+                        <small>{{ photo.date | date: "%Y-%m-%d" }}</small>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% if site.posts.size > 0 %}
+        <div class="w3-margin-bottom">
+            <h3 class="w3-center">Recent Posts</h3>
+            <ul class="w3-ul">
+                {% for post in site.posts limit: 6%}
+                <li>
+                    <a href="{{site.baseurl}}{{post.url}}" class="w3-button flat" style="width: 100%;">
+                        {{ post.title }}<br>
+                        <small>{{ post.date | date: "%Y-%m-%d" }}</small>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <div class="w3-center">
+            <h3>Links</h3>
+            {% include navbar_items.html %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+{% if include.photo.image %}
+<img style="width: 100%; height: 100%; object-fit: cover" src="{{site.baseurl}}{{include.photo.url}}/../{{ include.photo.image }}">
+{% endif %}
+{% if include.photo.video.youtube %}
+<img style="width: 100%; height: 100%; object-fit: cover" src="{{ include.photo.video.youtube.thumbnail }}">
+{% endif %}

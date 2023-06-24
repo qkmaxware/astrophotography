@@ -1,0 +1,169 @@
+---
+layout: default
+title: Astrophotography Gallery
+permalink: /photos.html
+---
+{% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | sort: 'date' | reverse  %}
+{% assign photo_groups = all_photos | group_by: "title" %}
+{% assign catalogues = all_photos | map: "catalogues" | compact | uniq %}
+
+<div class="w3-container w3-center">
+    <h1>PHOTOS</h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+        <div class="w3-margin-left w3-margin-right">
+            <input id="search" list="targets" class="w3-input search" type="text" placeholder="Search..." onchange="doSearch()"/>
+            <datalist id="targets">
+                {% for group in photo_groups %}
+                    {% assign group_catalogues = group.items | map:"catalogues" | compact | uniq %}
+                    {% for cat in group_catalogues %}
+                    <option value="{%if site.data.catalogues[cat].aliases[group.name] %}{{site.data.catalogues[cat].aliases[group.name]}}{% else %}{{group.name}}{% endif%}"></option>
+                    {% endfor %}
+                    {% if site.data.aliases[group.name] %}
+                    <option value="{{site.data.aliases[group.name]}}"></option>
+                    {% endif%}
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="w3-margin-left w3-margin-right w3-margin-top">
+            <button class="w3-button flat" onclick="clearFilters()">ALL</button>
+            {% for cat in catalogues %}
+            <button class="w3-button flat" onclick="filterByCatalogue('{{cat}}')">
+                {% for cat_meta in site.data.catalogues %}
+                    {% if cat_meta.first == cat and cat_meta.last.icon %}
+                    <i class="icon {{cat_meta.last.icon}}"></i>
+                    {% endif %}
+                {% endfor %}
+                {{ cat }}
+            </button>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="gallery" class="w3-row-padding">
+    {% for group in photo_groups %}
+    {% assign group_catalogues = group.items | map:"catalogues" | compact | uniq %}
+    <div class="w3-quarter w3-padding" data-target="{{ group.name }}">
+        <div class="w3-card panel">
+            <a href="{{site.baseurl}}{{group.items[0].url}}" style="height: 256px; overflow: clip; display: block;">
+                {% assign photo = group.items[0]%}
+                {% include thumbnail.html photo=photo %}
+            </a>
+            <div class="w3-container">
+                <p>
+                    <b>{{ group.name }} {{ site.data.aliases[group.name] }}</b><br>
+                    <small>updated: {{ group.items[0].date }}</small>
+                </p>
+                <p>
+                    Recent Images:
+                    <ol class="align-right" style="min-height: 6em; list-style: none;">
+                        {% for asset in group.items limit:6 %}
+                            <li><a href="{{site.baseurl}}{{asset.url}}">{{ asset.date }}</a></li>
+                        {% endfor %}
+                    </ol>
+                    {% if group.items.size > 6 %}
+                    <div>
+                        <ol id="more" class="w3-hide align-right" style="list-style: none">
+                            {% for asset in group.items offset:6 %}
+                                <li><a href="{{site.baseurl}}{{asset.url}}">{{ asset.date }}</a></li>
+                            {% endfor %}
+                        </ol>
+                        <button class="w3-button flat" style="width: 100%;" onclick="showHide(this, 'more')">See More</button>
+                    </div>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <datalist class="aliases">
+            {% for cat in group_catalogues %}
+            <abbr title="{{cat}}">{%if site.data.catalogues[cat].aliases[group.name] %}{{site.data.catalogues[cat].aliases[group.name]}}{% else %}{{group.name}}{% endif%}</abbr>
+            {% endfor %}
+            {% if site.data.aliases[group.name] %}
+            <abbr title="Common Name">{{site.data.aliases[group.name]}}</abbr>
+            {% endif%}
+        </datalist>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+function showHide(elem) {
+    console.log(elem);
+    var list = elem.parentElement.getElementsByTagName("ul");
+    if (!list)
+        return;
+    if (list.length < 1)
+        return;
+    toHide = list[0];
+    console.log(toHide)
+    if (toHide) {
+        if (toHide.classList.contains("w3-hide")) {
+            toHide.classList.remove("w3-hide");
+            toHide.classList.add("w3-show"); 
+            elem.innerText = "Hide";
+        } else {
+            toHide.classList.remove("w3-show");
+            toHide.classList.add("w3-hide");
+            elem.innerText = "See More";
+        }
+    }
+}
+
+function doSearch() {
+    var filterStr = document.getElementById("search").value;
+    filterByTarget(filterStr);
+}
+
+function filter(cond) {
+    for (var child of document.getElementById("gallery").children) {
+        var target = child.dataset;
+        if (target && cond(child, target)) {
+            child.classList.add("w3-show");
+            child.classList.remove("w3-hide");
+        } else {
+            child.classList.add("w3-hide");
+            child.classList.remove("w3-show");
+        }
+    }
+}
+
+function clearFilters() {
+    filter((el, data) => true);
+}
+
+function filterByTarget(filterStr)  {
+    filter((el, data) => {
+        if (typeof filterStr !== "string" && !(filterStr instanceof String))
+            return false;
+        if (data.target.includes(filterStr)) {
+            return true;
+        }
+
+        var aliases = el.getElementsByClassName("aliases")[0].getElementsByTagName("abbr");
+        if (aliases) {
+            for (let alias of aliases) {
+                if (alias.innerText.includes(filterStr)) {
+                    return true;
+                } 
+            }
+        }
+        return false;
+    });
+}
+
+function filterByCatalogue(catalogue) {
+    filter((el, data) => {
+        console.log(el);
+        var aliases = el.getElementsByClassName("aliases")[0].getElementsByTagName("abbr");
+        if (aliases) {
+            for (let alias of aliases) {
+                console.log("testing " + alias + " against " + catalogue);
+                if (alias.title === catalogue) {
+                    return true;
+                }
+            }
+        } 
+        return false;
+    });
+}
+</script>

@@ -1,0 +1,134 @@
+html {
+    background-color: #1e2124;
+    color: white;
+}
+
+nav {
+    background-color: #36393e;
+    color: white;
+}
+
+footer {
+    background-color: #36393e;
+    color: white;
+}
+
+input {
+    background-color: transparent;
+    color: inherit;
+}
+
+input.search {
+    padding-left: 40px;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='white' fill-opacity='0.5' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+}
+
+.w3-bottombar {
+    border-bottom: 6px solid #36393e!important;
+}
+
+article {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 64px;
+}
+@media (max-width:600px) {
+    article {
+        width: 100%;
+        margin-left: 4px;
+        margin-right: 4px;;
+    }
+}
+
+.panel {
+    background-color: #282b30 !important;
+}
+
+.w3-button.flat {
+    background-color: transparent;
+}
+.w3-button.flat:hover {
+    background-color: #FF9001 !important;
+}
+
+table thead tr{
+    background-color: #1b1d20 !important;
+    border: 1px solid #36393e;
+}
+
+i.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    background-position: center center;
+    background-size: contain;
+}
+
+.w3-table-all tr:nth-child(odd) {
+    background-color: #36393e;
+    color: inherit;
+}
+
+.w3-table-all tr:nth-child(even) {
+    background-color: #282b30;
+    color: inherit;
+}
+
+.timeline .content {
+    background-color: #282b30 !important;
+}
+
+.timeline::after {
+    background-color: white;
+}
+
+.timeline .container::after {
+    background-color: #36393e;
+}
+
+.timeline .left::before {
+    border-color: transparent transparent transparent #282b30;
+}
+
+.timeline .right::before {
+    border-color: transparent #282b30 transparent transparent;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+a:focus {
+    color: #FF9001;
+}
+
+a:hover {
+    color: #FF9001;
+}
+
+a.button {
+    padding: 8px 8px;
+} 
+
+a.button:hover {
+    background-color: #FF9001;
+    color: black;
+} 
+
+i.icon.solar-system {
+    background-image: url("icons/solar-system.svg"); 
+}
+
+i.icon.galaxy {
+    background-image: url("icons/galaxy.svg"); 
+}

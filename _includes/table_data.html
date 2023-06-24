@@ -1,0 +1,15 @@
+{% if include.value %}
+{% if include.value.units %}
+{% capture units %}{% for item in include.value %}{% if item[0] == "units"%}{{ item[1] }}{%endif%}{% endfor %}{% endcapture%}
+{% for field in include.value %}
+    {% if field[0] != "units" %}
+    {{field | first}}:{{ field | last }}{{ units }}
+    {% unless forloop.last %}
+    ,
+    {% endunless %}
+    {% endif %}
+{% endfor %}
+{% else %}
+{{ include.value }}
+{% endif %}
+{% endif %}

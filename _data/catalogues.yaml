@@ -1,0 +1,48 @@
+Solar System:
+  icon: solar-system
+
+Messier:
+  icon: galaxy
+  aliases:
+    M1: M 1
+    M6: M 6
+    M7: M 7
+    M8: M 8
+    M11: M 11
+    M13: M 13
+    M17: M 17
+    M20: M 20
+    M24: M 24
+    M27: M 27
+    M31: M 31
+    M33: M 33
+    M40: M 40
+    M42: M 42
+    M43: M 43
+    M44: M 44
+    M45: M 45
+    M51: M 51
+    M57: M 57
+    M63: M 63
+    M64: M 64
+    M76: M 76
+    M77: M 77
+    M81: M 81
+    M82: M 82
+    M83: M 83
+    M87: M 87
+    M97: M 97
+    M101: M 101
+    M104: M 104
+
+NGC:
+  icon: galaxy
+  aliases: 
+    M1: NGC 1952
+    M42: NGC 1976
+    M43: NGC 1982
+    M45: NGC 1432
+    M51: NGC 5194
+    M81: NGC 3031
+    M101: NGC 5457
+    M104: NGC 5195

@@ -1,0 +1,14 @@
+- name: telescope
+  order: 1000
+- name: guidescope
+  order: 999
+- name: mount
+  order: 800
+- name: camera
+  order: 700
+- name: barlow
+  order: 2
+- name: reducer
+  order: 1
+- name: filter
+  order: 0

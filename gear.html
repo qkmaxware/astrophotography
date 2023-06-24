@@ -1,0 +1,112 @@
+---
+layout: default
+title: Astrophotography Gear
+permalink: /gear.html
+---
+
+{% assign order = site.data.gearorder | sort: "order" | reverse %}
+{% assign ordered_groups = site.data.gearorder | map: "name" %}
+{% assign groups = site.equipment | where_exp:"item","item.retired == nil" | group_by: "device" %}
+{% assign next_groups = "" | split:","%}
+{% for type in order %}
+    {% for group in groups %}
+        {% if group.name == type.name %}
+            {% assign next_groups = next_groups | push: group %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+{% for group in groups %}
+    {% if ordered_groups contains group.name %}
+    {% else %}
+        {% assign next_groups = next_groups | push: group %}
+    {% endif%}
+{% endfor %}
+{% assign groups = next_groups %}
+
+
+<div class="w3-container w3-center w3-bottombar">
+    <h1>GEAR</h1>
+</div>
+
+<div class="w3-container w3-center">
+    <label><b>Jump To: </b></label> 
+    {% for group in groups %}
+    <a href="#section-{{group.name}}" class="w3-button flat">{{group.name | capitalize}}(s) {{ group.order }}</a>
+    {% endfor %}
+</div>
+
+<div class="w3-padding">
+    <div class="panel w3-padding w3-round-xlarge">
+        <b>Notice:</b><br>
+        This page only contains current and working gear. Too see older gear, including damaged, malfunctioning, or sold equipment see the <a href="{{site.baseurl}}/gear/archive">gear archive</a>.
+    </div>
+</div>
+
+<div class="w3-container gear">
+
+{% for group in groups %}
+<a id="section-{{group.name}}"></a>
+<h2><img src="{{site.baseurl}}{{site.data.icons[group.name]}}" class="icon">{{group.name | capitalize}}(s)</h2>
+{% assign collection = group.items | where_exp:"item","item.retired == nil" %}
+<div class="w3-margin-bottom">
+    {% for device in collection %}
+    <a href="#{{device.uid}}" class="w3-button flat">{{ device.model }}</a>
+    {% endfor %}
+</div>
+<div class="w3-margin-left">
+    {% for scope in collection %}
+    <a id="{{scope.uid}}"></a>
+    <div class="w3-row-padding w3-margin-bottom">
+        {% if scope.image %}
+        <div class="w3-quarter">
+            <h3>&nbsp;</h3>
+            <img src="{{site.baseurl}}{{scope.image}}" alt="{{ scope.manufacturer }} {{ scope.model }}">
+        </div>
+        {% endif %}
+        <div {% if scope.image %}class="w3-threequarter"{% endif %}>
+            <h3><a href="{{site.baseurl}}{{scope.url}}" target="_blank">{{ scope.manufacturer }} {{ scope.model }}</a></h3>
+            <table class="w3-table-all">
+                {% for field in scope %}
+                {% assign name = field %}
+                {% if 
+                    name == "uid" 
+                    or name == "device" 
+                    or name == "image" 
+                    or name == "collection"
+                    or name == "url"
+                    or name == "content"
+                    or name == "relative_path"
+                    or name == "excerpt"
+                    or name == "output"
+                    or name == "previous"
+                    or name == "id"
+                    or name == "date"
+                    or name == "next"
+                    or name == "path"
+                    or name == "draft"
+                    or name == "categories"
+                    or name == "layout"
+                    or name == "ext"
+                    or name == "tags"
+                    or name == "slug"
+                    or name == "title"
+                    or name == "type"
+                %}
+                {% else %}
+                <tr>
+                    <td>{{ name | capitalize }}</td>
+                    <td class="align-right">
+                        {% assign data = scope[field] %}
+                        {% include table_data.html value=data %}
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+
+</div>

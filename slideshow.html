@@ -1,0 +1,142 @@
+---
+title: Slideshow
+permalink: /slideshow/
+---
+<html>
+    <head>
+        {% include head.html %}
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: black;
+                -webkit-user-select: none; /* Safari */
+                -ms-user-select: none; /* IE 10 and IE 11 */
+                user-select: none; /* Standard syntax */
+            }
+    
+            .full {
+                width: 100vw;
+                height: 100vh;
+            }
+    
+            .full img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+            }
+    
+            .full .titlebar {
+                position: absolute;
+                z-index: 100;
+                top: 12px;
+                left: 12px;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 6px 12px;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            }
+
+            .full .date {
+                font-size: small;
+            }  
+
+            .attribution {
+                position: absolute;
+                z-index: 101;
+                bottom: 12px;
+                left: 12px;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 6px 12px;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            }
+
+            .fade-in {
+                visibility: visible;
+                opacity: 1;
+                transition: opacity 1s linear;
+            }
+    
+            .fade-out {
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0s 1s, opacity 1s linear;
+            }
+        </style>
+    </head>
+{% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | where_exp:"asset", "asset.image" | sort: 'date' | reverse  %}
+{% assign photo_groups = all_photos | group_by: "title" %}
+<body>
+    <div class="full">
+        <img id="slide1" src="" alt="Second Slide" draggable="false" ondragstart="false">
+        <img id="slide0" src="" alt="First Slide" draggable="false" ondragstart="false">
+        <div class="titlebar">
+            <span id="title">Image Title</span><br>
+            <span id="date" class="date">Image Date</span>
+        </div>
+        <span class="attribution">&copy; 2023-{{ 'now' | date: "%Y" }} {{ site.author }}, All rights reserved.</span>
+    </div>
+    <script>
+        var default_images = [
+            {% for group in photo_groups %}[
+                {% for asset in group.items%}{ title: "{{ group.name }} {{ site.data.aliases[group.name] }}", date: "{{ asset.date }}", url: "{{site.baseurl}}{{asset.url}}/../{{ asset.image }}" },{% endfor %}
+            ],{% endfor %}
+        ];
+        var default_delay = 30_000/*ms*/;
+
+        var current_show;
+
+        function init_show(images, delay) {
+            if (current_show) {
+                clearInterval(current_show);
+            }
+
+            var title = document.getElementById("title");
+            var date = document.getElementById("date");
+            var slide0 = document.getElementById("slide0");
+            var slide1 = document.getElementById("slide1");
+            var currentSlide = slide0;
+            var nextSlide = slide1;
+
+            function pick_random() {
+                var index = Math.floor(Math.random() * images.length);
+                var img_group = images[index];
+                var index = Math.floor(Math.random() * img_group.length);
+                return img_group[index];
+            }
+
+            var initial = pick_random();
+            currentSlide.src = initial.url;
+            currentSlide.classList.remove("fade-out");
+            currentSlide.classList.add("fade-in");
+            nextSlide.classList.remove("fade-in");
+            nextSlide.classList.add("fade-out");
+            title.innerText = initial.title; // Image title
+            date.innerText = initial.date;
+            current_show = setInterval(function () {
+                // Set next slide
+                var image = pick_random();
+                nextSlide.src = image.url;
+                nextSlide.classList.remove("fade-out");
+                nextSlide.classList.add("fade-in");
+                title.innerText = image.title; // Image title
+                date.innerText = image.date;
+                // Hide previous slide
+                currentSlide.classList.remove("fade-in");
+                currentSlide.classList.add("fade-out");
+                // Swap current & next for next iteration
+                var temp = currentSlide;
+                currentSlide = nextSlide;
+                nextSlide = temp;
+            }, delay);
+        }
+        init_show(default_images, default_delay);
+    </script>
+</body>
+
+</html>
