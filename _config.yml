@@ -28,12 +28,17 @@ url: "https://qkmaxware.github.io" # the base hostname & protocol for your site,
 collections:
   posts:
     output: true
-    permalink: /posts/:year/:month/:day/:title/
+    permalink: /posts/:year-:month-:day/:title/
   equipment:
     output: true
     permalink: /gear/:path/index
 
 defaults:
+- scope:
+    path: ""
+    type: "posts"
+  values:
+    layout: "post"
 - scope:
     path: ""
     type: "equipment"

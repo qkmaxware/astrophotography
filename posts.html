@@ -14,10 +14,10 @@ layout: default
 </div>
 {% endif %}
 
-<div class="timeline">
+<div class="timeline ruler">
     {% for post in site.posts %}
-    <div class="container left">
-        <div class="content {% cycle 'left', 'right' %}">
+    <div class="container {% cycle 'left', 'right' %}">
+        <div class="content">
             <h2>{{ post.title }}</h2>
             <p>{{ post.excerpt | strip_html | truncatewords: 150  }}</p>
             <div>
