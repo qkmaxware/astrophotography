@@ -2,6 +2,23 @@
     box-sizing: border-box;
 }
 
+.timeline .content {
+    background-color: #282b30 !important;
+}
+
+
+.timeline .container::after {
+    background-color: #36393e !important;
+}
+
+.timeline .left::before {
+    border-color: transparent transparent transparent #282b30 !important;
+}
+
+.timeline .right::before {
+    border-color: transparent #282b30 transparent transparent !important;
+}
+
 /* The actual timeline (the vertical ruler) */
 .timeline.ruler {
     position: relative;

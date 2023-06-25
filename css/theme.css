@@ -79,26 +79,6 @@ i.icon {
     color: inherit;
 }
 
-.timeline .content {
-    background-color: #282b30 !important;
-}
-
-.timeline::after {
-    background-color: white;
-}
-
-.timeline .container::after {
-    background-color: #36393e;
-}
-
-.timeline .left::before {
-    border-color: transparent transparent transparent #282b30;
-}
-
-.timeline .right::before {
-    border-color: transparent #282b30 transparent transparent;
-}
-
 a {
     color: white;
     text-decoration: none;
@@ -196,7 +176,7 @@ figure .compare .before {
     width: 640px;
     height: 480px;
     background-repeat: no-repeat;
-    background-size: 640px 480px;
+    background-size: cover;
     pointer-events: none;
     z-index: -1;
 }
@@ -207,7 +187,7 @@ figure .compare .after {
     width: 50%;
     height: 480px;
     background-repeat: no-repeat;
-    background-size: 640px 480px;
+    background-size: cover;
     pointer-events: none;
     z-index: 0;
 }

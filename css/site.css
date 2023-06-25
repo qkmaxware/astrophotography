@@ -13,6 +13,7 @@ div.preview {
   padding-top: 56.25%;
   object-fit: contain;
   position: relative; 
+  margin-top: 16px;
 }
 
 div.preview iframe {
