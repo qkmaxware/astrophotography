@@ -27,6 +27,20 @@ input.search {
     border-bottom: 6px solid #36393e!important;
 }
 
+.hover-pointer {
+    cursor: pointer;
+}
+
+.no-select {
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
 article {
     width: 70%;
     margin-left: auto;
