@@ -73,8 +73,8 @@ permalink: /slideshow/
 {% assign photo_groups = all_photos | group_by: "title" %}
 <body>
     <div class="full">
-        <img id="slide1" src="" alt="Second Slide" draggable="false" ondragstart="false">
-        <img id="slide0" src="" alt="First Slide" draggable="false" ondragstart="false">
+        <img id="slide1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="Second Slide" draggable="false" ondragstart="false">
+        <img id="slide0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="First Slide" draggable="false" ondragstart="false">
         <div class="titlebar">
             <span id="title">Image Title</span><br>
             <span id="date" class="date">Image Date</span>
@@ -116,6 +116,7 @@ permalink: /slideshow/
             currentSlide.classList.add("fade-in");
             nextSlide.classList.remove("fade-in");
             nextSlide.classList.add("fade-out");
+            currentSlide.alt = initial.title;
             title.innerText = initial.title; // Image title
             date.innerText = initial.date;
             current_show = setInterval(function () {
@@ -124,6 +125,7 @@ permalink: /slideshow/
                 nextSlide.src = image.url;
                 nextSlide.classList.remove("fade-out");
                 nextSlide.classList.add("fade-in");
+                nextSlide.alt = image.title;
                 title.innerText = image.title; // Image title
                 date.innerText = image.date;
                 // Hide previous slide

@@ -33,7 +33,7 @@ layout: default
                     {% if ref %}
                         {% assign gear_meta = all_gear | where:"uid",ref | first %}
                         {% if gear_meta %}
-                        <tr><td><b>{% if gear_meta.url %}<a href="{{site.baseurl}}{{gear_meta.url}}" target="_blank">{{ gear_meta.device | capitalize  }}</a>{% else %}{{ gear_meta.device | capitalize  }}{% endif%}</b><td></td><td></td></td></tr>
+                        <tr><td><b>{% if gear_meta.url %}<a href="{{site.baseurl}}{{gear_meta.url}}" target="_blank">{{ gear_meta.device | capitalize  }}<sup style="font-size: small; font-weight: normal;">&#128712;</sup></a>{% else %}{{ gear_meta.device | capitalize  }}{% endif%}</b><td></td><td></td></td></tr>
                             {% for field in gear_meta %}
                                 {% if 
                                     field == "uid" 

@@ -3,6 +3,11 @@ Solar System:
   extern: https://en.wikipedia.org/wiki/Solar_System
   aliases:
 
+Satellites:
+  icon: satellite
+  extern: https://en.wikipedia.org/wiki/Satellite
+  aliases:
+
 Messier:
   icon: galaxy
   extern: https://en.wikipedia.org/wiki/Messier_object

@@ -20,21 +20,34 @@ permalink: /photos.html
                     {% endfor %}
                     {% if site.data.aliases[group.name] %}
                     <option value="{{site.data.aliases[group.name]}}"></option>
-                    {% endif%}
+                    {% endif %}
                 {% endfor %}
             </datalist>
         </div>
         <div class="w3-margin-left w3-margin-right w3-margin-top">
+            Catalogue: 
             <button class="w3-button flat" onclick="clearFilters()">ALL</button>
             {% for cat in catalogues %}
-            <button class="w3-button flat" onclick="filterByCatalogue('{{cat}}')">
-                {% for cat_meta in site.data.catalogues %}
-                    {% if cat_meta.first == cat and cat_meta.last.icon %}
-                    <i class="icon {{cat_meta.last.icon}}"></i>
+            <div style="display: inline-block; position: relative;">
+                {% for meta in site.data.catalogues %}
+                    {% if meta.first == cat %}
+                        {% assign cat_meta = meta %}
                     {% endif %}
                 {% endfor %}
-                {{ cat }}
-            </button>
+                {% if cat_meta %}
+                    <button class="w3-button flat" onclick="filterByCatalogue('{{cat}}')">
+                        {% if cat_meta.last.icon %}<i class="icon {{cat_meta.last.icon}}"></i>{% endif %}
+                        {{ cat }}
+                    </button>
+                    {% if cat_meta.last.extern %}
+                    <a href="{{cat_meta.last.extern}}" target="_blank" style="font-size: small; position: absolute; top: 0; right: 0">&#128712;</a>
+                    {% endif %}
+                {% else %}
+                    <button class="w3-button flat" onclick="filterByCatalogue('{{cat}}')">
+                        {{ cat }}
+                    </button>
+                {% endif %}
+            </div>
             {% endfor %}
         </div>
     </div>
