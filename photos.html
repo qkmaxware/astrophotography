@@ -40,7 +40,7 @@ permalink: /photos.html
                         {{ cat }}
                     </button>
                     {% if cat_meta.last.extern %}
-                    <a href="{{cat_meta.last.extern}}" target="_blank" style="font-size: small; position: absolute; top: 0; right: 0">&#128712;</a>
+                    <a href="{{cat_meta.last.extern}}" target="_blank" style="font-size: small; position: absolute; top: 0; right: 0"><i class="icon info"></i></a>
                     {% endif %}
                 {% else %}
                     <button class="w3-button flat" onclick="filterByCatalogue('{{cat}}')">

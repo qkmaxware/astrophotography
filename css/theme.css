@@ -119,6 +119,14 @@ a.button:hover {
     color: black;
 } 
 
+i.icon.favicon {
+    background-image: url("icons/favicon.svg"); 
+}
+
+i.icon.info {
+    background-image: url("icons/info.svg"); 
+}
+
 i.icon.solar-system {
     background-image: url("icons/solar-system.svg"); 
 }

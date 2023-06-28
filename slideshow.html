@@ -72,7 +72,7 @@ permalink: /slideshow/
 {% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | where_exp:"asset", "asset.image" | sort: 'date' | reverse  %}
 {% assign photo_groups = all_photos | group_by: "title" %}
 <body>
-    <div class="full">
+    <div class="full" onclick="init_default()">
         <img id="slide1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="Second Slide" draggable="false" ondragstart="false">
         <img id="slide0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="First Slide" draggable="false" ondragstart="false">
         <div class="titlebar">
@@ -137,7 +137,10 @@ permalink: /slideshow/
                 nextSlide = temp;
             }, delay);
         }
-        init_show(default_images, default_delay);
+        function init_default() {
+            init_show(default_images, default_delay);
+        }
+        init_default();
     </script>
 </body>
 
