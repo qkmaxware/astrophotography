@@ -72,14 +72,14 @@ permalink: /slideshow/
 {% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | where_exp:"asset", "asset.image" | sort: 'date' | reverse  %}
 {% assign photo_groups = all_photos | group_by: "title" %}
 <body>
-    <div class="full" onclick="init_default()">
+    <div class="full" onclick="init_default()" style="cursor: pointer;">
         <img id="slide1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="Second Slide" draggable="false" ondragstart="false">
         <img id="slide0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="First Slide" draggable="false" ondragstart="false">
         <div class="titlebar">
             <span id="title">Image Title</span><br>
             <span id="date" class="date">Image Date</span>
         </div>
-        <span class="attribution">&copy; 2023-{{ 'now' | date: "%Y" }}; All rights reserved by author.</span>
+        <span id="legal" class="attribution">{% include copyright.html %}</span>
     </div>
     <script>
         var default_images = [
