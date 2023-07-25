@@ -6,6 +6,12 @@ layout: default
     <h1>{{ page.manufacturer }} {{ page.model }}</h1>
 </header>
 
+<section>
+    Used in the following gear rigs: 
+{% for rig in site.rigs %}
+    <a href="{{site.baseurl}}{{rig.url}}">{{rig.title}}</a>
+{% endfor %}
+</section>
 
 <div class="w3-row-padding w3-margin-bottom">
     {% if page.image %}
