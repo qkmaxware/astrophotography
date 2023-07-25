@@ -32,6 +32,10 @@ collections:
   equipment:
     output: true
     permalink: /gear/:path/index
+  rigs:
+    output: true
+    permalink: /gear/config/:name
+
 
 defaults:
 - scope:
@@ -48,6 +52,12 @@ defaults:
     path: "photos"
   values:
     layout: "image"
+- scope:
+    path: ""
+    type: "rigs"
+  values:
+    layout: "rig"
+
 
 # Build settings
 plugins:

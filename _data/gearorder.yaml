@@ -7,8 +7,10 @@
 - name: camera
   order: 700
 - name: barlow
-  order: 2
+  order: 3
 - name: reducer
+  order: 2
+- name: filter-wheel
   order: 1
 - name: filter
   order: 0

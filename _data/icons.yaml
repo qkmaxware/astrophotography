@@ -2,6 +2,7 @@ mount:  /static/icons/mount.svg
 camera: /static/icons/camera.svg
 telescope: /static/icons/primary_scope.svg
 guidescope: /static/icons/guide_scope.svg
-filter: /static/icons/filterwheel.svg
+filter: /static/icons/filter.svg
+filter-wheel: /static/icons/filterwheel.svg
 barlow: /static/icons/barlow.svg
 reducer: /static/icons/reducer.svg
