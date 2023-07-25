@@ -6,21 +6,23 @@ layout: default
     <h1>{{ page.title }} Rig</h1>
 </header>
 
-<div class="horizontal-gallery">
-    {% for gear in site.equipment %}
-    {% for gear_ref in page.gear %}
-        {% if gear.uid == gear_ref.ref %}
-        <div class="image w3-display-container">
-            {% if gear.image %}
-            <img style="width: 100%; height: 100%; object-fit: cover" src="{{site.baseurl}}{{gear.image}}">
+<article class="post">
+    <div class="horizontal-gallery">
+        {% for gear in site.equipment %}
+        {% for gear_ref in page.gear %}
+            {% if gear.uid == gear_ref %}
+            <div class="image w3-display-container">
+                {% if gear.image %}
+                <img class="contain" style="width: 100%; height: 100%; object-fit: cover" src="{{site.baseurl}}{{gear.image}}">
+                {% endif %}
+                <a href="{{site.baseurl}}{{gear.url}}" class="w3-display-middle w3-center">
+                    {{ gear.manufacturer }} {{ gear.model }}
+                </a>
+            </div>
             {% endif %}
-            <a href="{{site.baseurl}}{{gear.url}}" class="w3-display-middle w3-center">
-                {{ gear.manufacturer }} {{ gear.model }}
-            </a>
-        </div>
-        {% endif %}
-    {% endfor %}
-    {% endfor %}
-</div>
+        {% endfor %}
+        {% endfor %}
+    </div>
 
-{{ content }}
+    {{ content }}
+</article>

@@ -1,10 +1,10 @@
 ---
 title: Planetary Viewing
 gear:
-- ref: 5semount
-- ref: 5se
-- ref: powermate2.5
-- ref: asi662
+- 5semount
+- 5se
+- powermate2.5
+- asi662
 ---
 The planetary viewing rig is one of the simpler gear configurations requiring very few parts. The telescope and mount can be purchased as a bundle together at a relatively inexpensive price. The only additional components are the 2.5x powermate and the ZWO ASI-662MC planetary astrocam. 
 

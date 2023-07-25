@@ -1,11 +1,11 @@
 ---
 title: Portable Rig
 gear:
-- ref: azgti
-- ref: gt71
-- ref: 6aiii
-- ref: drawer
-- ref: asi662
+- azgti
+- gt71
+- 6aiii
+- drawer
+- asi662
 ---
 The portable rig is designed for maximum portability while still retaining enough power for wide-field deep sky photography. The SkyWatcher Alt-Az GTi is lightweight and able to be powered via a powerbox, portable battery, or even AA batteries if all else fails. I am currently powering the telescope using the Celestron Lithium PowerTank Lithium which is also light and provided about 10 hours of running time for the mount. The William Optics Gran Turismo 71 is a little on the heavy side. Usually with this mount, amature astronomy tend to buy 60mm scopes rather than 71mm ones. However, the GT 71mm scope is a triplet compared to the 60mm scopes tending to be doublets so you get slightly better optics and with the added 10mm of aperture you can capture slightly fainter objects. 
 
