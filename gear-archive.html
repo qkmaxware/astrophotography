@@ -45,6 +45,50 @@ permalink: /gear/archive.html
 
 <div class="w3-container gear">
 
+    <a id="section-rigs"></a>
+    <h2><img src="{{site.baseurl}}/static/icons/full_rig.svg" class="icon">Complete Rigs(s)</h2>
+    <div class="w3-margin-left">
+        {% for rig in site.rigs %}
+            {% assign rig_is_active = false %}
+            {% for gear in rig.gear %}
+            {% for eq in site.equipment %}
+                {% if eq.retired == nil %}
+                    {% assign rig_is_active = true %}
+                {% endif %}
+            {% endfor %}
+            {% endfor %}
+            {% if rig_is_active %}
+            {% else %}
+                <a id="{{rig.title}}"></a>
+                <div class="w3-row-padding w3-margin-bottom">
+                    {% if rig.image %}
+                    <div class="w3-quarter">
+                        <h3>&nbsp;</h3>
+                        <img src="{{site.baseurl}}{{rig.image}}" alt="{{ rig.title }}">
+                    </div>
+                    {% endif %}
+                    <div {% if rig.image %}class="w3-threequarter"{% endif %}>
+                        <h3><a href="{{site.baseurl}}{{rig.url}}" target="_blank">{{ rig.title }}</a></h3>
+                        <table class="w3-table-all">
+                            {% for gear in rig.gear %}
+                            {% for eq in site.equipment %}
+                            {% if eq.uid == gear %}
+                            <tr>
+                                <td>{{ eq.device | capitalize }}</td>
+                                <td class="align-right">
+                                    <a href="#{{ eq.uid }}">{{ eq.manufacturer }} {{ eq.model }}<sup style="font-size: small; font-weight: normal;"><i class="icon info"></i></sup></a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
     {% for group in groups %}
     <a id="section-{{group.name}}"></a>
     <h2><img src="{{site.baseurl}}{{site.data.icons[group.name]}}" class="icon">{{group.name | capitalize}}(s)</h2>

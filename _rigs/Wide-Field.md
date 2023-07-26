@@ -1,5 +1,5 @@
 ---
-title: Portable Rig
+title: Wide Field
 gear:
 - azgti
 - gt71
