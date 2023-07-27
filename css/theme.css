@@ -47,11 +47,44 @@ article {
     margin-right: auto;
     margin-bottom: 64px;
 }
+
+#series-nav {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 64px;
+    background-color: #36393e;
+    padding: 16px 8px;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-style: solid;
+    border-color: #525458;
+}
+
+#series-continue {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 @media (max-width:600px) {
     article {
         width: 100%;
         margin-left: 4px;
-        margin-right: 4px;;
+        margin-right: 4px;
+    }
+    #series-nav {
+        width: 100%;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    
+    #series-continue {
+        width: 100%;
+        margin-left: 4px;
+        margin-right: 4px;
     }
 }
 
@@ -137,6 +170,14 @@ i.icon.galaxy {
 
 i.icon.satellite {
     background-image: url("icons/satellite.svg"); 
+}
+
+i.icon.left {
+    background-image: url("icons/chevron-left.svg"); 
+}
+
+i.icon.right {
+    background-image: url("icons/chevron-right.svg"); 
 }
 
 body {

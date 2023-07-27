@@ -1,5 +1,6 @@
 ---
-title: Dobsonian Restoration
+title: Mirror & Tube Restoration
+series: Dobsonian Restoration
 categories: 
 ---
 Recently a coworker decided to gift me an old dobsonian telescope that they had hanging around in their basement. They bought it for a friend, but it was never really used and was now only taking up space for them. 

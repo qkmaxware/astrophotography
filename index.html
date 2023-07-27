@@ -29,8 +29,11 @@ layout: default
             <h3 class="w3-center">Recent Posts</h3>
             <ul class="w3-ul">
                 {% for post in site.posts limit: 6%}
-                <li>
+                <li style="border-bottom: none;">
                     <a href="{{site.baseurl}}{{post.url}}" class="w3-button flat" style="width: 100%;">
+                        {% if post.series %}
+                        <small>{{ post.series }}</small><br>
+                        {% endif %}
                         {{ post.title }}<br>
                         <small>{{ post.date | date: "%Y-%m-%d" }}</small>
                     </a>

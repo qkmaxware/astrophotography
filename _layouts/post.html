@@ -2,11 +2,83 @@
 layout: default
 ---
 
+{% assign posts_in_series = '' | split: '' %}
+{% assign prev_post = nil %}
+{% assign this_post = nil %}
+{% assign next_post = nil %}
+{% assign series_index = 1 %}
+
+{% if page.series %}
+
+{% assign all_posts = site.posts | reverse %}
+{% for post in all_posts %}
+    {% if post.series == page.series %}
+        {% assign posts_in_series = posts_in_series | push: post %}
+        {% if post.url == page.url %}
+            {% assign this_post = post %}
+        {% else %}
+            {% if this_post %}
+                {% if next_post %}
+                {% else %}
+                    {% assign next_post = post %}
+                {% endif %}
+            {% else %}
+                {% assign series_index = series_index | plus: 1 %}
+                {% assign prev_post = post %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% endif %}
+
+
 <header class="w3-center w3-margin-bottom w3-bottombar">
     <h1>{{ page.title }}</h1>
     <h3>{{ page.date | date: "%-d %B %Y" }}</h3>
 </header>
 
+{% if page.series %}
+<div id="series-nav">
+    <p>
+    This article is <strong>Part {{ series_index }}</strong> of the <strong>{{ posts_in_series.size }}-Part</strong> series '<i>{{ page.series }}</i>'.
+    </p>
+    <ol>
+        {% for post in posts_in_series %}
+            {% if post.url == page.url %}
+            <li><strong>This article</strong></li>
+            {% else %}
+            <li><a href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+
+
 <article class="post">
     {{ content }}
 </article>
+
+{% if page.series %}
+<div id="series-continue" class="w3-row">
+    <div class="w3-half">
+    {% if prev_post %}
+        <a href="{{site.baseurl}}{{prev_post.url}}" style="display: table; width: 100%;">
+            <div style="display: table-cell; width: 2em; vertical-align: middle;"><i class="icon left"></i></div>
+            <div style="display: table-cell">Previous Article<br>{{ prev_post.title }}</div>
+        </a>
+    {% endif %}
+    &nbsp;
+    </div>
+    <div class="w3-half">
+    {% if next_post %}
+        <a href="{{site.baseurl}}{{next_post.url}}" style="display: table; width: 100%;">
+            <div style="display: table-cell; text-align: right;">Next Article<br>{{ next_post.title }}</div>
+            <div style="display: table-cell; text-align: right; width: 2em; vertical-align: middle;"><i class="icon right"></i></div> 
+        </a>
+    {% endif %}
+    &nbsp;
+    </div>
+</div>
+{% endif %}
