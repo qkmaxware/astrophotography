@@ -64,6 +64,11 @@ div.preview iframe {
   object-fit: cover;
 }
 
+.horizontal-gallery .image img.contain { 
+  object-fit: contain !important;
+}
+
+
 .align-right {
     text-align: right !important;
 }
