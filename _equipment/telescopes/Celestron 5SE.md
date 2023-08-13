@@ -3,7 +3,7 @@ uid: 5se
 device: telescope
 image: /static/equipment/5se.png
 manufacturer: Celestron
-model: NexStar 5SE
+model: C5
 kind: Schmidt–Cassegrain
 focal length:
     units: mm
