@@ -16,4 +16,4 @@ targets:
 - Saturn
 ---
 And below with 1.5x Drizzle and less drastic sharpening. 
-<img class="preview" src="StackPercent25_Ap11_Drizzle15_Sharpened_RGBAligned">
+<img class="preview" src="StackPercent25_Ap11_Drizzle15_Sharpened_RGBAligned.png">
