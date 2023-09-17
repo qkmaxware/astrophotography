@@ -14,6 +14,14 @@ layout: default
 </div>
 {% endif %}
 
+<div class="w3-padding">
+    <div class="panel w3-padding w3-round-xlarge">
+        <b>Notice:</b><br>
+        This list is sorted in chronological order, you can view a list of articles organized by their series <a class="highlight" href="posts-by-series">here</a>.
+    </div>
+</div>
+
+
 <div class="timeline ruler">
     {% for post in site.posts %}
     <div class="container {% cycle 'left', 'right' %}">

@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<div class="w3-container w3-center w3-bottombar">
+    <h1>POSTS</h1>
+</div>
+
+{% if site.posts.size < 1 %}
+<div class="w3-margin-top w3-center" style="padding-top: 32px; width: 640px; max-width: 100%; margin-left: auto; margin-right: auto;">
+    <div class="w3-round-xlarge w3-padding panel">
+        There are no posts yet!
+    </div>
+</div>
+{% endif %}
+
+<div class="w3-padding">
+    <div class="panel w3-padding w3-round-xlarge">
+        <b>Notice:</b><br>
+        This list is sorted in series order, you can view a list of articles organized chronologically <a class="highlight" href="posts-by-chronology">here</a>.
+    </div>
+</div>
+
+<article>
+<div class="w3-margin-bottom">
+    {% assign all_series = site.posts | group_by: "series" %}
+    <label><b>Jump To: </b></label>
+    {% for series in all_series %}
+    <a href="#{{ series.name | cgi_escape }}" class="w3-button flat">{{ series.name }}</a>
+    {% endfor %}
+</div>
+
+{% for series in all_series %}
+<div class="container w3-margin-bottom">
+    <a id="{{ series.name | cgi_escape }}"></a>
+    <h1>{{ series.name }}</h1>
+    <div class="w3-leftbar w3-bottombar">
+        {% for post in series.items %}
+        <div class="w3-margin-left">
+            <small>{{ post.date | date: "%Y-%m-%d" }}</small>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt | strip_html | truncatewords: 50  }}</p>
+            <div style="text-align: right;">
+                <a href="{{site.baseurl}}{{post.url}}" class="w3-button flat">Continue Reading</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+</article>

@@ -131,8 +131,17 @@ a {
     text-decoration: none;
 }
 
+a.highlight {
+    color: rgb(67, 127, 255);
+    text-decoration: underline;
+}
+
 a:visited {
     color: white;
+}
+
+a.highlight:visited {
+    color: rgb(194, 0, 155);
 }
 
 a:focus {
@@ -186,17 +195,17 @@ body {
 figure {
     width: 100%; 
 }
-figure figcaption {
+figcaption {
     text-align: center;
     counter-increment: figure-caption-numbering;
 }
-figure figcaption::before {
+figcaption::before {
     margin-right: 0.5em;
     content: "Figure " counter(figure-caption-numbering) ":";
     font-weight: bold;
 }
 figure img {
-    width: 50%;
+    max-width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto; 
@@ -257,4 +266,29 @@ figure .compare .after {
     background-size: cover;
     pointer-events: none;
     z-index: 0;
+}
+
+article h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+article h2 {
+    font-size: 1.17em;
+    font-weight: bold;
+}
+article h3 {
+    font-size: 1em;
+    font-weight: bold;
+}
+article h4 {
+    font-size: .83em;
+    font-weight: bold;
+}
+article h5 {
+    font-size: .67em;
+    font-weight: bold;
+}
+article h6 {
+    font-size: .54em;
+    font-weight: bold;
 }
