@@ -16,10 +16,10 @@ permalink: /photos.html
                 {% for group in photo_groups %}
                     {% assign group_catalogues = group.items | map:"catalogues" | compact | uniq %}
                     {% for cat in group_catalogues %}
-                    <option value="{%if site.data.catalogues[cat].aliases[group.name] %}{{site.data.catalogues[cat].aliases[group.name]}}{% else %}{{group.name}}{% endif%}"></option>
+                    <option value="{%if site.data.objects[group.name].catalogues[cat] %}{{site.data.objects[group.name].catalogues[cat]}}{% else %}{{group.name}}{% endif%}"></option>
                     {% endfor %}
-                    {% if site.data.aliases[group.name] %}
-                    <option value="{{site.data.aliases[group.name]}}"></option>
+                    {% if site.data.objects[group.name].name %}
+                    <option value="{{site.data.objects[group.name].name}}"></option>
                     {% endif %}
                 {% endfor %}
             </datalist>
@@ -64,35 +64,28 @@ permalink: /photos.html
             </a>
             <div class="w3-container">
                 <p>
-                    <b>{{ group.name }} {{ site.data.aliases[group.name] }}</b><br>
+                    <b>{{ group.name }} {{ site.data.objects[group.name].name }}</b><br>
                     <small>updated: {{ group.items[0].date }}</small>
                 </p>
                 <p>
                     Recent Images:
                     <ol class="align-right" style="min-height: 6em; list-style: none;">
-                        {% for asset in group.items limit:6 %}
+                        {% for asset in group.items limit:3 %}
                             <li><a href="{{site.baseurl}}{{asset.url}}">{{ asset.date }}</a></li>
                         {% endfor %}
                     </ol>
                     {% if group.items.size > 6 %}
-                    <div>
-                        <ol id="more" class="w3-hide align-right" style="list-style: none">
-                            {% for asset in group.items offset:6 %}
-                                <li><a href="{{site.baseurl}}{{asset.url}}">{{ asset.date }}</a></li>
-                            {% endfor %}
-                        </ol>
-                        <button class="w3-button flat" style="width: 100%;" onclick="showHide(this, 'more')">See More</button>
-                    </div>
+                    <a href="{{site.baseurl}}/objects/{{group.name | downcase}}" class="w3-button flat" style="width: 100%;">See More</a>
                     {% endif %}
                 </p>
             </div>
         </div>
         <datalist class="aliases">
             {% for cat in group_catalogues %}
-            <abbr title="{{cat}}">{%if site.data.catalogues[cat].aliases[group.name] %}{{site.data.catalogues[cat].aliases[group.name]}}{% else %}{{group.name}}{% endif%}</abbr>
+            <abbr title="{{cat}}">{%if site.data.objects[group.name].catalogues[cat] %}{{site.data.objects[group.name].catalogues[cat]}}{% else %}{{group.name}}{% endif%}</abbr>
             {% endfor %}
-            {% if site.data.aliases[group.name] %}
-            <abbr title="Common Name">{{site.data.aliases[group.name]}}</abbr>
+            {% if site.data.objects[group.name].name %}
+            <abbr title="Common Name">{{site.data.objects[group.name].name}}</abbr>
             {% endif%}
         </datalist>
     </div>

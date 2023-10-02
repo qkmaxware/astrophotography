@@ -26,6 +26,9 @@ input.search {
 .w3-bottombar {
     border-bottom: 6px solid #36393e!important;
 }
+.w3-topbar {
+    border-top: 6px solid #36393e!important;
+}
 
 .hover-pointer {
     cursor: pointer;
@@ -116,6 +119,11 @@ i.icon {
     background-size: contain;
 }
 
+.panel {
+    background-color: #36393e;
+    padding: 6px 12px;
+}
+
 .w3-table-all tr:nth-child(odd) {
     background-color: #36393e;
     color: inherit;
@@ -126,24 +134,20 @@ i.icon {
     color: inherit;
 }
 
-a {
-    color: white;
-    text-decoration: none;
-}
-
 a.highlight {
     color: rgb(67, 127, 255);
     text-decoration: underline;
 }
-
-a:visited {
-    color: white;
-}
-
 a.highlight:visited {
     color: rgb(194, 0, 155);
 }
-
+a {
+    color: white;
+    text-decoration: none;
+}
+a:visited {
+    color: white;
+}
 a:focus {
     color: #FF9001;
 }

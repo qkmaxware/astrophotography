@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+{% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | sort: 'date' | reverse | where_exp: "photo", "photo.title == page.title or photo.targets contains page.title" %}
+
+<header class="w3-center w3-bottombar">
+    {% if page.title == site.data.objects[page.title].name %}
+    <h1>{{ page.title }} </h1>
+    {% else %}
+    <h1>{{ page.title }} {{ site.data.objects[page.title].name }}</h1>
+    {% endif %}
+</header>
+
+{% assign most_recent = all_photos[0] %}
+<div class="w3-padding w3-row-padding w3-margin-bottom w3-margin-top">
+    <div class="w3-half">
+        {% if most_recent %}
+            {% include thumbnail.html photo=most_recent %}
+        {% endif %}
+    </div>
+    <div class="w3-half">
+        <table class="w3-table">
+            <thead>
+                <td class="w3-center w3-large">Information</td>
+            </thead>
+        </table>
+        <table class="w3-table-all">
+            <tbody>
+                <tr><td><b>Common Name</b></td><td></td><td>{{ site.data.objects[page.title].name }}</td></tr>
+                <tr><td><b>Site Primary Key</b></td><td></td><td>{{ site.data.objects[page.title].uid }}</td></tr>
+                <tr><td><b>Catalog Aliases</b></td><td></td><td></td></tr>
+                {% for cat in site.data.objects[page.title].catalogues %}
+                <tr><td></td><td>{{ cat | first }}</td><td>{{ cat | last }}</td></tr>
+                {% endfor %}
+                <tr><td><b>Most Recent Photo</b></td><td></td><td>{{ most_recent.date | date: "%Y-%m-%d" }}</td></tr>
+            </tbody>
+        </table>
+        <p class="panel">
+            {{ site.data.objects[page.title].description }}
+            <label><b>Want to Learn More?</b></label>
+            {% if site.data.objects[page.title].catalogues["NGC"] %}
+                <a class="w3-button flat" style="width: 100%;" target="_blank" href='https://simbad.u-strasbg.fr/simbad/sim-basic?Ident={{site.data.objects[page.title].catalogues["NGC"]}}'>View {{ page.title }} in SIMBAD Database.</a>
+            {% endif %}
+            {% if site.data.objects[page.title].href %}
+                <a class="w3-button flat" style="width: 100%;" target="_blank" href="{{ site.data.objects[page.title].href }}">Read about {{ page.title }} here.</a>
+            {% endif %}
+        </p>
+    </div>
+</div>
+
+
+<h3 class="w3-center w3-topbar">All Photos of {{ page.title }}</h3>
+<div class="timeline ruler">
+    {% for photo in all_photos %}
+    <div class="container {% cycle 'left', 'right' %}">
+        <div class="content">
+            <h3><a href="{{site.baseurl}}{{photo.url}}">{{ photo.date | date: "%Y-%m-%d" }}</a></h3>
+            <div>
+                <a href="{{site.baseurl}}{{photo.url}}">
+                {% include thumbnail.html photo=photo %}
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

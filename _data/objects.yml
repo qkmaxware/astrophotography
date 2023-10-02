@@ -1,0 +1,643 @@
+# Combines aliases.yaml + extern.yaml + simplifies catalogues.yaml
+Sun:
+  uid: Sun
+  name: Sol
+  href: https://en.wikipedia.org/wiki/Sun
+  description: |-
+    
+  catalogues: 
+    Solar System: Sol
+Mercury:
+  uid: Mercury
+  name: Mercury
+  href: https://en.wikipedia.org/wiki/Mercury_(planet)
+  catalogues: 
+    Solar System: Mercury
+Venus:
+  uid: Venus
+  name: Venus
+  href: https://en.wikipedia.org/wiki/Venus
+  catalogues: 
+    Solar System: Venus
+Earth:
+  uid: Earth
+  name: Earth
+  href: https://en.wikipedia.org/wiki/Earth
+  catalogues: 
+    Solar System: Earth
+Moon:
+  uid: Moon
+  name: Moon
+  href: https://en.wikipedia.org/wiki/Moon
+  catalogues: 
+    Solar System: Moon
+Mars:
+  uid: Mars
+  name: Mars
+  href: https://en.wikipedia.org/wiki/Mars
+  catalogues: 
+    Solar System: Mars
+Jupiter:
+  uid: Jupiter
+  name: Jupiter
+  href: https://en.wikipedia.org/wiki/Jupiter
+  catalogues: 
+    Solar System: Jupiter
+Saturn:
+  uid: Saturn
+  name: Saturn
+  href: https://en.wikipedia.org/wiki/Saturn
+  catalogues: 
+    Solar System: Saturn
+Uranus:
+  uid: Uranus
+  name: Uranus
+  href: https://en.wikipedia.org/wiki/Uranus
+  catalogues: 
+    Solar System: Uranus
+Neptune:
+  uid: Neptune
+  name: Neptune
+  href: https://en.wikipedia.org/wiki/Neptune
+  catalogues: 
+    Solar System: Neptune
+
+M1:
+  uid: M1
+  href: https://en.wikipedia.org/wiki/Crab_Nebula
+  name: Crab Nebula
+  catalogues:
+    NGC: NGC 1952
+    Messier: M 1
+M2:
+  uid: M2
+  catalogues:
+    NGC: NGC 7089
+M3:
+  uid: M3
+  catalogues:
+    NGC: NGC 5272
+M4:
+  uid: M4 
+  name: Spider Globular
+  catalogues:
+    NGC: NGC 6121
+    Messier: M 4
+M5:
+  uid: M5 
+  name: Rose Cluster
+  catalogues:
+    NGC: NGC 5904
+    Messier: M 5
+M6:
+  uid: M6 
+  name: Butterfly Nebula
+  catalogues:
+    NGC: NGC 6405
+    Messier: M 6
+M7:
+  uid: M7 
+  name: The Scorpion's Tail
+  catalogues:
+    NGC: NGC 6475
+    Messier: M 7
+M8:
+  uid: M8 
+  name: Lagoon Nebula
+  catalogues:
+    NGC: NGC 6523
+    Messier: M 8
+M9:
+  uid: M9
+  catalogues:
+    NGC: NGC 6333
+M10:
+  uid: M10
+  catalogues:
+    NGC: NGC 6254
+M11:
+  uid: M11 
+  name: Wild Duck Cluster
+  catalogues:
+    NGC: NGC 6705
+    Messier: M 11
+M12:
+  uid: M12
+  catalogues:
+    NGC: NGC 6218
+M13:
+  uid: M13 
+  name: Hercules Globular Cluster
+  catalogues:
+    NGC: NGC 6205
+    Messier: M 13
+M14:
+  uid: M14
+  catalogues:
+    NGC: NGC 6402
+M15:
+  uid: M15 
+  name: Great Pegasus Cluster
+  catalogues:
+    NGC: NGC 7078
+    Messier: M 15
+M16:
+  uid: M16 
+  name: Eagle Nebula
+  catalogues:
+    NGC: NGC 6611
+    Messier: M 16
+M17:
+  uid: M17 
+  href: https://en.wikipedia.org/wiki/Omega_Nebula
+  name: Lobster Nebula
+  catalogues:
+    NGC: NGC 6618
+    Messier: M 17
+M18:
+  uid: M18 
+  name: Black Swan Cluster
+  catalogues:
+    NGC: NGC 6613
+    Messier: M 18
+M19:
+  uid: M19
+  catalogues:
+    NGC: NGC 6273
+M20:
+  uid: M20 
+  name: Trifid Nebula
+  catalogues:
+    NGC: NGC 6514
+    Messier: M 20
+M21:
+  uid: M21 
+  name: Webb's Cross Cluster
+  catalogues:
+    NGC: NGC 6531
+    Messier: M 21
+M22:
+  uid: M22 
+  name: Great Sagittarius Cluster
+  catalogues:
+    NGC: NGC 6656
+    Messier: M 22
+M23:
+  uid: M23
+  catalogues:
+    NGC: NGC 6494
+M24:
+  uid: M24 
+  name: Sagittarius Star Cloud
+  catalogues:
+    NGC: IC 4715
+    Messier: M 24
+M25:
+  uid: M25
+  catalogues:
+    NGC: IC 4725
+M26:
+  uid: M26
+  catalogues:
+    NGC: NGC 6694
+M27:
+  uid: M27 
+  name: Dumbbell Nebula
+  catalogues:
+    NGC: NGC 6853
+    Messier: M 27
+M28:
+  uid: M28
+  catalogues:
+    NGC: NGC 6626
+M29:
+  uid: M29 
+  name: Cooling Tower
+  catalogues:
+    NGC: NGC 6913
+    Messier: M 29
+M30:
+  uid: M30 
+  name: Jellyfish Cluster
+  catalogues:
+    NGC: NGC 7099
+    Messier: M 30
+M31:
+  uid: M31 
+  name: Andromeda Galaxy
+  catalogues:
+    NGC: NGC 224
+    Messier: M 31
+M32:
+  uid: M32 
+  name: Andromeda Satellite Galaxy
+  catalogues:
+    NGC: NGC 221
+    Messier: M 32
+M33:
+  uid: M33 
+  name: Triangulum Galaxy
+  catalogues:
+    NGC: NGC 598
+    Messier: M 33
+M34:
+  uid: M34 
+  name: Spiral Cluster
+  catalogues:
+    NGC: NGC 1039
+    Messier: M 34
+M35:
+  uid: M35 
+  name: Shoe-Buckle Cluster
+  catalogues:
+    NGC: NGC 2168
+    Messier: M 35
+M36:
+  uid: M36 
+  name: Pinwheel Cluster
+  catalogues:
+    NGC: NGC 1960
+    Messier: M 36
+M37:
+  uid: M37 
+  name: Salt and Pepper Cluster
+  catalogues:
+    NGC: NGC 2099
+    Messier: M 37
+M38:
+  uid: M38 
+  name: Starfish Cluster	
+  catalogues:
+    NGC: NGC 1912
+    Messier: M 38
+M39:
+  uid: M39
+  catalogues:
+    NGC: NGC 7092
+M40:
+  uid: M40 
+  name: Winnecke 4
+  catalogues:
+    Messier: M 40
+M41:
+  uid: M41 
+  name: Little Beehive Cluster
+  catalogues:
+    NGC: NGC 2287
+    Messier: M 41
+M42:
+  uid: M42 
+  href: https://en.wikipedia.org/wiki/Orion_Nebula
+  name: Orion's Nebula
+  catalogues:
+    NGC: NGC 1976
+    Messier: M 42
+M43:
+  uid: M43 
+  href: https://en.wikipedia.org/wiki/Messier_43
+  name: DeMairan's Nebula
+  catalogues:
+    NGC: NGC 1982
+    Messier: M 43
+M44:
+  uid: M44 
+  name: Beehive Cluster
+  catalogues:
+    NGC: NGC 2632
+    Messier: M 44
+M45:
+  uid: M45 
+  href: https://en.wikipedia.org/wiki/Pleiades
+  name: Pleiades
+  catalogues:
+    NGC: NGC 1432
+    Messier: M 45
+M46:
+  uid: M46
+  catalogues:
+    NGC: NGC 2437
+M47:
+  uid: M47
+  catalogues:
+    NGC: NGC 2422
+M48:
+  uid: M48
+  catalogues:
+    NGC: NGC 2548
+M49:
+  uid: M49
+  catalogues:
+    NGC: NGC 4472
+M50:
+  uid: M50 
+  name: Heart-Shaped Cluster
+  catalogues:
+    NGC: NGC 2323
+    Messier: M 50
+M51:
+  uid: M51 
+  href: https://en.wikipedia.org/wiki/Whirlpool_Galaxy
+  name: Whirlpool Galaxy
+  catalogues:
+    NGC: NGC 5194
+    Messier: M 51
+M52:
+  uid: M52 
+  name: Scorpion Cluster
+  catalogues:
+    NGC: NGC 7654
+    Messier: M 52
+M53:
+  uid: M53
+  catalogues:
+    NGC: NGC 5024
+M54:
+  uid: M54
+  catalogues:
+    NGC: NGC 6715
+M55:
+  uid: M55 
+  name: Specter Cluster
+  catalogues:
+    NGC: NGC 6809
+    Messier: M 55
+M56:
+  uid: M56
+  catalogues:
+    NGC: NGC 6779
+M57:
+  uid: M57 
+  href: https://en.wikipedia.org/wiki/Ring_Nebula
+  name: Ring Nebula
+  catalogues:
+    NGC: NGC 6720
+    Messier: M 57
+M58:
+  uid: M58
+  catalogues:
+    NGC: NGC 4579
+M59:
+  uid: M59
+  catalogues:
+    NGC: NGC 4621
+M60:
+  uid: M60
+  catalogues:
+    NGC: NGC 4649
+M61:
+  uid: M61 
+  name: Swelling Spiral
+  catalogues:
+    NGC: NGC 4303
+    Messier: M 61
+M62:
+  uid: M62 
+  name: Flickering Globular
+  catalogues:
+    NGC: NGC 6266
+    Messier: M 62
+M63:
+  uid: M63 
+  name: Sunflower Galaxy
+  catalogues:
+    NGC: NGC 5055
+    Messier: M 63
+M64:
+  uid: M64 
+  name: Blackeye Galaxy
+  catalogues:
+    NGC: NGC 4826
+    Messier: M 64
+M65:
+  uid: M65 
+  name: Leo Triplet
+  catalogues:
+    NGC: NGC 3623
+    Messier: M 65
+M66:
+  uid: M66 
+  name: Leo Triplet
+  catalogues:
+    NGC: NGC 3627
+    Messier: M 66
+M67:
+  uid: M67 
+  name: King Cobra Cluster
+  catalogues:
+    NGC: NGC 2682
+    Messier: M 67
+M68:
+  uid: M68
+  catalogues:
+    NGC: NGC 4590
+M69:
+  uid: M69
+  catalogues:
+    NGC: NGC 6637
+M70:
+  uid: M70
+  catalogues:
+    NGC: NGC 6681
+M71:
+  uid: M71 
+  name: Angelfish Cluster
+  catalogues:
+    NGC: NGC 6838
+    Messier: M 71
+M72:
+  uid: M72
+  catalogues:
+    NGC: NGC 6981
+M73:
+  uid: M73
+  catalogues:
+    NGC: NGC 6994
+M74:
+  uid: M74 
+  name: Phantom Galaxy
+  catalogues:
+    NGC: NGC 628
+    Messier: M 74
+M75:
+  uid: M75
+  catalogues:
+    NGC: NGC 6864
+M76:
+  uid: M76 
+  name: Little Dumbbell Nebula
+  catalogues:
+    NGC: NGC 650
+    Messier: M 76
+M77:
+  uid: M77 
+  name: Cetus A
+  catalogues:
+    NGC: NGC 1068
+    Messier: M 77
+M78:
+  uid: M78 
+  name: Casper the Friendly Ghost Nebula
+  catalogues:
+    NGC: NGC 2068	
+    Messier: M 78
+M79:
+  uid: M79
+  catalogues:
+    NGC: NGC 1904
+M80:
+  uid: M80
+  catalogues:
+    NGC: NGC 6093
+M81:
+  uid: M81 
+  href: https://en.wikipedia.org/wiki/Messier_81
+  name: Bode's Galaxy
+  catalogues:
+    NGC: NGC 3031
+    Messier: M 81
+M82:
+  uid: M82 
+  name: Cigar Galaxy
+  catalogues:
+    NGC: NGC 3034
+    Messier: M 82
+M83:
+  uid: M83 
+  name: Southern Pinwheel
+  catalogues:
+    NGC: NGC 5236
+    Messier: M 83
+M84:
+  uid: M84
+  catalogues:
+    NGC: NGC 4374	
+M85:
+  uid: M85
+  catalogues:
+    NGC: NGC 4382
+M86:
+  uid: M86
+  catalogues:
+    NGC: NGC 4406
+M87:
+  uid: M87 
+  name: Virgo A
+  catalogues:
+    NGC: NGC 4486
+    Messier: M 87
+M88:
+  uid: M88
+  catalogues:
+    NGC: NGC 4501
+M89:
+  uid: M89
+  catalogues:
+    NGC: NGC 4552
+M90:
+  uid: M90
+  catalogues:
+    NGC: NGC 4569
+M91:
+  uid: M91 
+  catalogues:
+    NGC: NGC 4548	
+M92:
+  uid: M92
+  catalogues:
+    NGC: NGC 6341
+M93:
+  uid: M93 
+  name: Critter Cluster
+  catalogues:
+    NGC: NGC 2447
+    Messier: M 93
+M94:
+  uid: M94 
+  name: Cat's Eye Galaxy
+  catalogues:
+    NGC: NGC 4736	
+    Messier: M 94
+M95:
+  uid: M95
+  catalogues:
+    NGC: NGC 3351 
+M96:
+  uid: M96
+  catalogues:
+    NGC: NGC 3368
+M97:
+  uid: M97 
+  name: Owl Nebula
+  catalogues:
+    NGC: NGC 3587	
+    Messier: M 97
+M98:
+  uid: M98
+  catalogues:
+    NGC: NGC 4192
+M99:
+  uid: M99 
+  name: St. Catherine's Wheel
+  catalogues:
+    NGC: NGC 4254
+    Messier: M 99
+M100:
+  uid: M100 
+  name: Mirror Galaxy
+  catalogues:
+    NGC: NGC 4321
+    Messier: M 100
+M101:
+  uid: M101 
+  href: https://en.wikipedia.org/wiki/Pinwheel_Galaxy
+  name: Pinwheel Galaxy
+  catalogues:
+    NGC: NGC 5457
+    Messier: M 101
+M102:
+  uid: M102 
+  name: Spindle Galaxy
+  catalogues:
+    NGC: NGC 5866
+    Messier: M 102
+M103:
+  uid: M103 
+  catalogues:
+    NGC: NGC 581
+M104:
+  uid: M104 
+  href: https://en.wikipedia.org/wiki/Sombrero_Galaxy
+  name: Sombrero Galaxy
+  catalogues:
+    NGC: NGC 5195
+    Messier: M 104
+M105:
+  uid: M105
+  catalogues:
+    NGC: NGC 3379
+M106:
+  uid: M106
+  catalogues:
+    NGC: NGC 4258
+M107:
+  uid: M107 
+  name: Crucifix Cluster
+  catalogues:
+    NGC: NGC 6171
+    Messier: M 107
+M108:
+  uid: M108 
+  name: Surfboard Galaxy
+  catalogues:
+    NGC: NGC 3556	
+    Messier: M 108
+M109:
+  uid: M109 
+  name: Vacuum Cleaner Galaxy
+  catalogues:
+    NGC: NGC 3992
+    Messier: M 109
+M110:
+  uid: M110 
+  catalogues:
+    NGC: NGC 205

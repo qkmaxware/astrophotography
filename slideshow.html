@@ -84,7 +84,7 @@ permalink: /slideshow/
     <script>
         var default_images = [
             {% for group in photo_groups %}[
-                {% for asset in group.items%}{ title: "{{ group.name }} {{ site.data.aliases[group.name] }}", date: "{{ asset.date }}", url: "{{site.baseurl}}{{asset.url}}/../{{ asset.image }}" },{% endfor %}
+                {% for asset in group.items%}{ title: "{{ group.name }} {{ site.data.objects[group.name].name }}", date: "{{ asset.date }}", url: "{{site.baseurl}}{{asset.url}}/../{{ asset.image }}" },{% endfor %}
             ],{% endfor %}
         ];
         var default_delay = 30_000/*ms*/;
