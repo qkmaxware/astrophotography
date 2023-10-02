@@ -4,15 +4,15 @@ on:
   push:
     branches:
       - root
-  workflow_dispatch:
 
 jobs:
   github-pages:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     permissions:
         contents: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: helaili/jekyll-action@2.0.1
+      - uses: actions/checkout@v3
+      - uses: jeffreytse/jekyll-deploy-action@v0.5.0
         env:
-          JEKYLL_PAT: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'gh-pages'
