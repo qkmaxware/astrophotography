@@ -47,6 +47,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.3.6)
+    mini_magick (4.12.0)
     minima (2.5.1)
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
@@ -77,8 +78,9 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.0.1)
-  jekyll-datapage-generator
+  jekyll-datapage-generator (= 1.4)
   jekyll-feed (~> 0.12)
+  mini_magick (~> 4.12)
   minima (~> 2.5)
   tzinfo (~> 1.2)
   tzinfo-data
