@@ -25,7 +25,7 @@ function scan(startPath, outFiles) {
 };
 
 module.exports.process = async function() {
-    console.log("Generating thumbnails");
+    process.stdout.write("Generating thumbnails...");
 
     // Read images
     let images = [];
@@ -50,4 +50,6 @@ module.exports.process = async function() {
         // Do resize
         await sharp(from).resize({width: width, height: height}).toFile(to);
     }
+
+    console.log("done");
 }

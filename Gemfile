@@ -30,4 +30,3 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 # Datafile generator for pages
 gem "jekyll-datapage-generator", '1.4'
-gem 'mini_magick', '~> 4.12'
