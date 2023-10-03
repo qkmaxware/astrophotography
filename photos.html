@@ -56,15 +56,15 @@ permalink: /photos.html
 <div id="gallery" class="w3-row-padding">
     {% for group in photo_groups %}
     {% assign group_catalogues = group.items | map:"catalogues" | compact | uniq %}
+    {% assign photo = group.items[0]%}
     <div class="w3-quarter w3-padding" data-target="{{ group.name }}">
         <div class="w3-card panel">
             <a href="{{site.baseurl}}{{group.items[0].url}}" style="height: 256px; overflow: clip; display: block;">
-                {% assign photo = group.items[0]%}
                 {% include thumbnail.html photo=photo %}
             </a>
             <div class="w3-container">
                 <p>
-                    <b>{{ group.name }} {{ site.data.objects[group.name].name }}</b><br>
+                    <b>{% include objectname.html photo=photo %}</b><br>
                     <small>updated: {{ group.items[0].date }}</small>
                 </p>
                 <p>

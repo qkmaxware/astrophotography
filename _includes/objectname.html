@@ -1,0 +1,1 @@
+{% if include.photo %}{% if include.photo.title == site.data.objects[include.photo.title].name %}{{ include.photo.title }}{% else %}{{ include.photo.title }} {{ site.data.objects[include.photo.title].name }}{% endif %}{%endif%}

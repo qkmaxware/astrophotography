@@ -2,7 +2,12 @@ const path = require('path');
 const sharp = require('sharp');
 const fs = require('fs');
 
-const filter = /\.(png|jpg|jpeg|bmp)$/i;
+// Preprocessor behavior config
+const includeList = [
+    "photos"
+];
+const extensions = /\.(png|jpg|jpeg|bmp)$/i;
+
 function scan(startPath, outFiles) {
     if (!fs.existsSync(startPath)) {
         console.log("no dir ", startPath);
@@ -18,8 +23,17 @@ function scan(startPath, outFiles) {
         var stat = fs.lstatSync(filename);
         if (stat.isDirectory()) {
             scan(filename, outFiles); //recurse
-        } else if (filter.test(filename)) {
-            outFiles.push(filename);
+        } else if (extensions.test(filename)) {
+            var add = false;
+            for (var j = 0; j < includeList.length; j++) {
+                if (filename.startsWith(includeList[j])) {
+                    add = true; 
+                    break;
+                }
+            }
+            if (add) {
+                outFiles.push(filename);
+            }
         };
     };
 };
@@ -33,7 +47,7 @@ module.exports.process = async function() {
 
     for (var i = 0; i < images.length; i++) {
         let from = images[i];
-        let to = "generated/thumbnails/" + from;
+        let to = "static/thumbnails/" + from;
         let dir = path.dirname(to);
         
         // Make directory if it doesn't exist
