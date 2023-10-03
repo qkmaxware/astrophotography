@@ -18,10 +18,12 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+      - name: update
+        run: sudo apt-get update
       - name: install/libmagickwand
-        run: sudo apt-get install libmagickwand-dev
+        run: sudo apt-get install -y libmagickwand-dev
       - name: install/imagemagick
-        run: sudo apt-get install imagemagick
+        run: sudo apt-get install -y graphicsmagick-imagemagick-compat --fix-missing
       - uses: jeffreytse/jekyll-deploy-action@v0.5.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
