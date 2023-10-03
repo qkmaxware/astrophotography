@@ -33,7 +33,7 @@ module.exports.process = async function() {
 
     for (var i = 0; i < images.length; i++) {
         let from = images[i];
-        let to = "_site/generated/thumbnails/" + from;
+        let to = "generated/thumbnails/" + from;
         let dir = path.dirname(to);
         
         // Make directory if it doesn't exist
