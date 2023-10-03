@@ -43,6 +43,7 @@ defaults:
     type: "posts"
   values:
     layout: "post"
+    datestampTitle: true
 - scope:
     path: ""
     type: "equipment"
@@ -52,6 +53,7 @@ defaults:
     path: "photos"
   values:
     layout: "image"
+    datestampTitle: true
 - scope:
     path: ""
     type: "rigs"
@@ -62,16 +64,7 @@ defaults:
 # Build settings
 plugins:
   - jekyll-feed
-  - jekyll-datapage-generator
 
-# Config for jekyll-datapage-generator
-page_gen-dirs: true
-page_gen:
-- data: objects
-  template: object
-  name: "uid"
-  title: "uid"
-  index_files: false
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

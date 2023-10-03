@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 {% assign telescope = site.data.telescopes | where:"uid",page.gear.telescope.ref | first %}
 {% assign camera = site.data.cameras | where:"uid",page.gear.camera.ref | first %}
 {% assign barlow = site.data.barlows | where:"uid",page.gear.telescope.reducer | first %}

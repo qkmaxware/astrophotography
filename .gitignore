@@ -1,7 +1,11 @@
+# ignore jekyll content
 _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
 node_modules/
+
+# ignore preprocessor generated content
 static/thumbnails
+objects/

@@ -91,10 +91,6 @@ article {
     }
 }
 
-.panel {
-    background-color: #282b30 !important;
-}
-
 .w3-button.flat {
     background-color: transparent;
 }
@@ -120,7 +116,7 @@ i.icon {
 }
 
 .panel {
-    background-color: #36393e;
+    background-color: #282b30;
     padding: 6px 12px;
 }
 

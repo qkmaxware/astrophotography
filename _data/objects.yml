@@ -1,7 +1,7 @@
 # Combines aliases.yaml + extern.yaml + simplifies catalogues.yaml
 Sun:
   uid: Sun
-  name: Sol
+  name: Sun
   href: https://en.wikipedia.org/wiki/Sun
   description: |-
     

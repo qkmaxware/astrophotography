@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | sort: 'date' | reverse | where_exp: "photo", "photo.title == page.title or photo.targets contains page.title" %}
+{% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | where_exp: "photo", "photo.title == page.title or photo.targets contains page.title" | sort: 'date' | reverse %}
 
 <header class="w3-center w3-bottombar">
     <h1>{% include objectname.html photo=page %}</h1>
@@ -32,21 +32,27 @@ layout: default
                 <tr><td><b>Most Recent Photo</b></td><td></td><td>{{ most_recent.date | date: "%Y-%m-%d" }}</td></tr>
             </tbody>
         </table>
-        <p class="panel">
+        <div class="w3-margin-top">
             {{ site.data.objects[page.title].description }}
-            <label><b>Want to Learn More?</b></label>
-            {% if site.data.objects[page.title].catalogues["NGC"] %}
-                <a class="w3-button flat" style="width: 100%;" target="_blank" href='https://simbad.u-strasbg.fr/simbad/sim-basic?Ident={{site.data.objects[page.title].catalogues["NGC"]}}'>View {{ page.title }} in SIMBAD Database.</a>
-            {% endif %}
-            {% if site.data.objects[page.title].href %}
-                <a class="w3-button flat" style="width: 100%;" target="_blank" href="{{ site.data.objects[page.title].href }}">Read about {{ page.title }} here.</a>
-            {% endif %}
-        </p>
+            <table class="w3-table">
+                <thead>
+                    <td class="w3-center w3-large">Want to Learn More?</td>
+                </thead>
+            </table>
+            <div class="panel w3-border">
+                {% if site.data.objects[page.title].catalogues["NGC"] %}
+                    <a class="w3-button flat" style="width: 100%;" target="_blank" href='https://simbad.u-strasbg.fr/simbad/sim-basic?Ident={{site.data.objects[page.title].catalogues["NGC"]}}'>View {{ page.title }} in SIMBAD Database.</a>
+                {% endif %}
+                {% if site.data.objects[page.title].href %}
+                    <a class="w3-button flat" style="width: 100%;" target="_blank" href="{{ site.data.objects[page.title].href }}">Read about {{ page.title }} here.</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
 
 
-<h3 class="w3-center w3-topbar">All Photos of {{ page.title }}</h3>
+<h3 class="w3-center">All Photos of {{ page.title }}</h3>
 <div class="timeline ruler">
     {% for photo in all_photos %}
     <div class="container {% cycle 'left', 'right' %}">
