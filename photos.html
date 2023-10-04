@@ -5,7 +5,9 @@ permalink: /photos.html
 ---
 {% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | sort: 'date' | reverse  %}
 {% assign photo_groups = all_photos | group_by: "title" %}
-{% assign catalogues = all_photos | map: "catalogues" | compact | uniq %}
+{% assign site_catalogues = site.data.catalogues | keys %}
+{% assign photo_catalogues = all_photos | map: "catalogues" | compact %}
+{% assign catalogues = site_catalogues | concat: photo_catalogues | uniq %}
 
 <div class="w3-container w3-center">
     <h1>PHOTOS</h1>
@@ -14,12 +16,18 @@ permalink: /photos.html
             <input id="search" list="targets" class="w3-input search" type="text" placeholder="Search..." onchange="doSearch()"/>
             <datalist id="targets">
                 {% for group in photo_groups %}
-                    {% assign group_catalogues = group.items | map:"catalogues" | compact | uniq %}
-                    {% for cat in group_catalogues %}
-                    <option value="{%if site.data.objects[group.name].catalogues[cat] %}{{site.data.objects[group.name].catalogues[cat]}}{% else %}{{group.name}}{% endif%}"></option>
-                    {% endfor %}
-                    {% if site.data.objects[group.name].name %}
-                    <option value="{{site.data.objects[group.name].name}}"></option>
+                    {% assign object_meta = site.data.objects[group.name] %}
+                    {% if object_meta %}
+                        {% if object_meta.name %}
+                        <option value="{{object_meta.name}}"></option>
+                        {% endif %}
+                        {% if object_meta.catalogues %} 
+                            {% for group_catalogues in object_meta.catalogues %}
+                            <option value="{{group_catalogues | last}}"></option>
+                            {% endfor %}
+                        {% endif %}
+                    {% else %}
+                    <option value="{{group.name}}"></option>
                     {% endif %}
                 {% endfor %}
             </datalist>
@@ -55,7 +63,6 @@ permalink: /photos.html
 
 <div id="gallery" class="w3-row-padding">
     {% for group in photo_groups %}
-    {% assign group_catalogues = group.items | map:"catalogues" | compact | uniq %}
     {% assign photo = group.items[0]%}
     <div class="w3-quarter w3-padding" data-target="{{ group.name }}">
         <div class="w3-card panel">
@@ -80,12 +87,16 @@ permalink: /photos.html
                 </p>
             </div>
         </div>
+        {% assign object_meta = site.data.objects[group.name] %}
+        {% assign object_catalogues = object_meta.catalogues | keys %}
+        {% assign group_catalogues = group.items | map:"catalogues" | compact %}
+        {% assign all_catalogues = object_catalogues | concat: group_catalogues | uniq %}
         <datalist class="aliases">
-            {% for cat in group_catalogues %}
-            <abbr title="{{cat}}">{%if site.data.objects[group.name].catalogues[cat] %}{{site.data.objects[group.name].catalogues[cat]}}{% else %}{{group.name}}{% endif%}</abbr>
+            {% for cat in all_catalogues %}
+            <abbr title="{{cat}}">{%if object_meta.catalogues[cat] %}{{object_meta.catalogues[cat]}}{% else %}{{group.name}}{% endif%}</abbr>
             {% endfor %}
-            {% if site.data.objects[group.name].name %}
-            <abbr title="Common Name">{{site.data.objects[group.name].name}}</abbr>
+            {% if object_meta.name %}
+            <abbr title="Common Name">{{object_meta.name}}</abbr>
             {% endif%}
         </datalist>
     </div>

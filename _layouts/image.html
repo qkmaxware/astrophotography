@@ -25,11 +25,12 @@ layout: default
             {{content}}
         </div>
         <div class="w3-margin-top">
+            {% if site.data.objects[page.title] %}
             <a href="{{site.baseurl}}/objects/{{page.title | downcase}}" class="w3-button flat" style="width: 100%;">See all photos of {{ page.title }} here.</a>
-        </div>
-        <div>
+            <br>
+            {% endif %}
             {% if site.data.objects[page.title].href %}
-                <a class="w3-button flat" style="width: 100%;" target="_blank" href="{{ site.data.objects[page.title].href }}">Read about {{ page.title }} here.</a>
+            <a class="w3-button flat" style="width: 100%;" target="_blank" href="{{ site.data.objects[page.title].href }}">Read about {{ page.title }} here.</a>
             {% endif %}
         </div>
     </div>

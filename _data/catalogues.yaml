@@ -1,12 +1,13 @@
+Landscape:
+  icon: landscape
+
 Solar System:
   icon: solar-system
   extern: https://en.wikipedia.org/wiki/Solar_System
-  aliases:
 
 Satellites:
   icon: satellite
   extern: https://en.wikipedia.org/wiki/Satellite
-  aliases:
 
 Messier:
   icon: galaxy

@@ -173,6 +173,10 @@ i.icon.solar-system {
     background-image: url("icons/solar-system.svg"); 
 }
 
+i.icon.landscape {
+    background-image: url("icons/landscape.svg"); 
+}
+
 i.icon.galaxy {
     background-image: url("icons/galaxy.svg"); 
 }
