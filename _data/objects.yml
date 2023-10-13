@@ -62,6 +62,7 @@ Neptune:
   catalogues: 
     Solar System: Neptune
 
+# Messier Catalog
 M1:
   uid: M1
   href: https://en.wikipedia.org/wiki/Crab_Nebula
@@ -642,3 +643,19 @@ M110:
   uid: M110 
   catalogues:
     NGC: NGC 205
+
+# Caldwell Catalog
+C20:
+  uid: C20 
+  name: North America Nebula
+  href: https://en.wikipedia.org/wiki/North_America_Nebula
+  catalogues:
+    NGC: NGC 7000
+    Caldwell: Caldwell 20
+C33:
+  uid: C33 
+  name: Veil Nebula
+  href: https://en.wikipedia.org/wiki/Veil_Nebula
+  catalogues:
+    NGC: NGC 6960
+    Caldwell: Caldwell 33

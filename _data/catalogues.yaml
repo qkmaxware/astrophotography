@@ -16,3 +16,7 @@ Messier:
 NGC:
   icon: galaxy
   extern: https://en.wikipedia.org/wiki/New_General_Catalogue
+
+Caldwell:
+  icon: galaxy
+  extern: https://en.wikipedia.org/wiki/Caldwell_catalogue
