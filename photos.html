@@ -75,14 +75,14 @@ permalink: /photos.html
                     <small>updated: {{ group.items[0].date }}</small>
                 </p>
                 <p>
-                    Recent Images:
                     <ol class="align-right" style="min-height: 6em; list-style: none;">
+                        <li>Recent Images</li>
                         {% for asset in group.items limit:3 %}
                             <li><a href="{{site.baseurl}}{{asset.url}}">{{ asset.date }}</a></li>
                         {% endfor %}
                     </ol>
-                    {% if group.items.size > 6 %}
-                    <a href="{{site.baseurl}}/objects/{{group.name | downcase}}" class="w3-button flat" style="width: 100%;">See More</a>
+                    {% if site.data.objects[photo.title].href %}
+                    <a class="w3-button flat" style="width: 100%;" href="{{site.baseurl}}/objects/{{group.name | downcase}}">About Object</a>
                     {% endif %}
                 </p>
             </div>
