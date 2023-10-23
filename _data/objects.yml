@@ -653,6 +653,13 @@ C11:
     NGC: NGC 7635
     Caldwell: Caldwell 11
     Sharpless: Sharpless 162
+C19:
+  uid: C19
+  name: Cocoon Nebula
+  href: https://en.wikipedia.org/wiki/IC_5146
+  catalogues:
+    NGC: IC 5146
+    Caldwell: Caldwell 19
 C20:
   uid: C20 
   name: North America Nebula
@@ -670,9 +677,16 @@ C27:
     Sharpless: Sharpless 105
 C33:
   uid: C33 
-  name: Veil Nebula
+  name: Eastern Veil Nebula
   href: https://en.wikipedia.org/wiki/Veil_Nebula
   catalogues:
     NGC: NGC 6992
     Caldwell: Caldwell 33
     IC: IC 1340
+C34:
+  uid: C34 
+  name: Western Veil Nebula
+  href: https://en.wikipedia.org/wiki/Veil_Nebula
+  catalogues:
+    NGC: NGC 6960
+    Caldwell: Caldwell 34
