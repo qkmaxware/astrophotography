@@ -239,6 +239,7 @@ M32:
 M33:
   uid: M33 
   name: Triangulum Galaxy
+  href: https://en.wikipedia.org/wiki/Triangulum_Galaxy
   catalogues:
     NGC: NGC 598
     Messier: M 33

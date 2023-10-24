@@ -12,7 +12,9 @@ layout: default
 <div class="w3-padding w3-row-padding w3-margin-bottom w3-margin-top">
     <div class="w3-half">
         {% if most_recent %}
-            {% include thumbnail.html photo=most_recent %}
+        <a href="{{site.baseurl}}{{most_recent.url}}">
+            {% include photo.html photo=most_recent %}
+        </a>
         {% endif %}
     </div>
     <div class="w3-half">
@@ -29,7 +31,7 @@ layout: default
                 {% for cat in site.data.objects[page.title].catalogues %}
                 <tr><td></td><td>{{ cat | first }}</td><td>{{ cat | last }}</td></tr>
                 {% endfor %}
-                <tr><td><b>Most Recent Photo</b></td><td></td><td>{{ most_recent.date | date: "%Y-%m-%d" }}</td></tr>
+                <tr><td><b>Most Recent Photo</b></td><td></td><td><a href="{{site.baseurl}}{{most_recent.url}}">{{ most_recent.date | date: "%Y-%m-%d" }}</a></td></tr>
             </tbody>
         </table>
         <div class="w3-margin-top">

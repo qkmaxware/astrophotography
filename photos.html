@@ -81,7 +81,7 @@ permalink: /photos.html
                             <li><a href="{{site.baseurl}}{{asset.url}}">{{ asset.date }}</a></li>
                         {% endfor %}
                     </ol>
-                    {% if site.data.objects[photo.title].href %}
+                    {% if site.data.objects[photo.title] %}
                     <a class="w3-button flat" style="width: 100%;" href="{{site.baseurl}}/objects/{{group.name | downcase}}">About Object</a>
                     {% endif %}
                 </p>
