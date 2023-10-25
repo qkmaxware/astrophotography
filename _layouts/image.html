@@ -14,7 +14,7 @@ layout: default
 <div class="w3-padding w3-row-padding w3-margin-bottom">
     <div class="w3-half w3-right">
         {% if page.image %}
-        <button style="cursor: pointer; border: 0; padding: 0; margin: 0;" class="w3-hover-opacity" onclick="maximize(this)">
+        <button style="cursor: pointer; border: 0; padding: 0; margin: 0; background-color: transparent; width: 100%;" class="w3-hover-opacity" onclick="maximize(this)">
             {% include photo.html photo=page %}
         </button>
         {% endif %}
@@ -111,9 +111,12 @@ layout: default
 </div>
 <div id="modal" class="w3-modal w3-hide" style="z-index: 100">
     <div class="w3-modal-content w3-display-container w3-animate-zoom w3-center w3-margin-bottom" style="width: 90%; background-color: transparent;">
-        <button class="w3-display-topright w3-text-white w3-button flat" onclick="minimize()"><h1>&times;</h1></button>
+        <div style="width: 100%; background-color: rgb(0, 0, 0); border-radius: 16px 16px 0px 0px;">
+            <span style="display: inline-block; margin: 8px 16px; ">{{ page.image }}</span>
+            <button class="w3-button w3-right" style="border-radius: 0px 16px 0px 0px;" onclick="minimize()">&times;</button>
+        </div>
         {% include photo.html photo=page %}
-        <a href="{{ page.image }}" target="_blank" style="display: block; width: 100%; background-color: rgb(0, 0, 0); padding: 8px 16px; border-radius: 0 0 16px 16px;">open image in new tab</a>
+        <a href="{{ page.image }}" target="_blank" style="display: block; width: 100%; background-color: rgb(0, 0, 0); padding: 8px 16px; border-radius: 0 0 16px 16px;">open in new tab</a>
     </div>
 </div>
 <script>
