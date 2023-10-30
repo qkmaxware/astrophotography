@@ -8,6 +8,11 @@ nav {
     color: white;
 }
 
+.w3-dropdown-content {
+    background-color: #36393e;
+    color: white;
+}
+
 footer {
     background-color: #36393e;
     color: white;
