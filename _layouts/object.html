@@ -28,8 +28,8 @@ layout: default
                 <tr><td><b>Common Name</b></td><td></td><td>{{ site.data.objects[page.title].name }}</td></tr>
                 <tr><td><b>Site Primary Key</b></td><td></td><td>{{ site.data.objects[page.title].uid }}</td></tr>
                 <tr><td><b>Catalog Aliases</b></td><td></td><td></td></tr>
-                {% for cat in site.data.objects[page.title].catalogues %}
-                <tr><td></td><td>{{ cat | first }}</td><td>{{ cat | last }}</td></tr>
+                {% for cat in site.data.objects[page.title].catalogues %}{%assign catalogue = cat | first%}
+                <tr><td></td><td>{%if site.data.catalogues[catalogue].extern%}<a href="{{site.data.catalogues[catalogue].extern}}" target="_blank">{{ catalogue }}</a>{%else%}{{catalogue}}{%endif%}</td><td>{{ cat | last }}</td></tr>
                 {% endfor %}
                 <tr><td><b>Most Recent Photo</b></td><td></td><td><a href="{{site.baseurl}}{{most_recent.url}}">{{ most_recent.date | date: "%Y-%m-%d" }}</a></td></tr>
             </tbody>

@@ -7,6 +7,7 @@ video:
   youtube:
     thumbnail: https://i3.ytimg.com/vi/ZPmKRKWRmJA/maxresdefault.jpg
     src: https://www.youtube.com/embed/ZPmKRKWRmJA
+palette: R/G/B
 gear:
 - ref: 5semount
 - ref: 5se

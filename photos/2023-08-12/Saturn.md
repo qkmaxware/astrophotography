@@ -3,6 +3,7 @@ layout: image
 title: Saturn
 date: 2023-08-12
 image: StackPercent25_Ap21_Drizzle30_Sharpened_Wavelet_Crop.png
+palette: R/G/B
 gear:
 - ref: 5semount
 - ref: 5se

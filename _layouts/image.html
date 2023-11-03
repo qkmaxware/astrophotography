@@ -50,6 +50,9 @@ layout: default
                 <tr><td><b>Date Taken</b></td><td></td><td></td></tr>
                 <tr><td></td><td></td><td class="align-right">{{ page.date }}</td></tr>
 
+                <tr><td><b>Palette</b></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td class="align-right">{% if page.palette %}{{ page.palette }}{% else %}?{% endif %}</td></tr>
+
                 {% assign all_gear = site.equipment %}
                 {% for gear in page.gear %}
                     {% assign ref = gear.ref %}

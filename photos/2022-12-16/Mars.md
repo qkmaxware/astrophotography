@@ -3,6 +3,7 @@ layout: image
 title: Mars
 date: 2022-12-16
 image: image_2022_12_16T05_28_22_086Z-1.png
+palette: R/G/B
 gear:
 - ref: 5semount
 - ref: 5se

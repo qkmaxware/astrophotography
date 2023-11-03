@@ -29,6 +29,19 @@ permalink: /slideshow/
                 left: 0;
                 pointer-events: none;
             }
+
+            .full .restart {
+                width: 100vw;
+                height: 100vh;
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            a {
+                cursor: pointer;
+            }
     
             .full .titlebar {
                 position: absolute;
@@ -72,22 +85,31 @@ permalink: /slideshow/
 {% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | where_exp:"asset", "asset.image" | sort: 'date' | reverse  %}
 {% assign photo_groups = all_photos | group_by: "title" %}
 <body>
-    <div class="full" onclick="init_default()" style="cursor: pointer;">
+    <div class="full">
+        <div class="restart" onclick="init_default()" style="cursor: pointer;" title="click to change image" ></div>
         <img id="slide1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="Second Slide" draggable="false" ondragstart="false">
         <img id="slide0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="First Slide" draggable="false" ondragstart="false">
         <div class="titlebar">
-            <span id="title">Image Title</span><br>
-            <span id="date" class="date">Image Date</span>
+            <a id="url" href="#">
+                <span id="title">Image Title</span><br>
+                <span id="date" class="date">Image Date</span>
+            </a>
         </div>
         <span id="legal" class="attribution">{% include copyright.html %}</span>
     </div>
     <script>
         var default_images = [
             {% for group in photo_groups %}[{% assign photo = group.items[0]%}
-                {% for asset in group.items%}{ title: "{% include objectname.html photo=photo %}", date: "{{ asset.date }}", url: "{{site.baseurl}}{{asset.url}}/../{{ asset.image }}" },{% endfor %}
+                {% for asset in group.items%}{ title: "{% include objectname.html photo=photo %}", date: "{{ asset.date }}", detailhref: "{{site.baseurl}}{{asset.url}}", url: "{{site.baseurl}}{{asset.url}}/../{{ asset.image }}", palette: "{%if asset.palette %}{{asset.palette}}{% else %}?{% endif %}" },{% endfor %}
             ],{% endfor %}
         ];
-        var default_delay = 30_000/*ms*/;
+        var units = {
+            hours: 3.6e+6,
+            minutes: 60000,
+            seconds: 1000,
+            milliseconds: 1
+        };
+        var default_delay = 30 * units.seconds;
 
         var current_show;
 
@@ -98,6 +120,7 @@ permalink: /slideshow/
 
             var title = document.getElementById("title");
             var date = document.getElementById("date");
+            var link = document.getElementById("url");
             var slide0 = document.getElementById("slide0");
             var slide1 = document.getElementById("slide1");
             var currentSlide = slide0;
@@ -119,6 +142,7 @@ permalink: /slideshow/
             currentSlide.alt = initial.title;
             title.innerText = initial.title; // Image title
             date.innerText = initial.date;
+            link.href = initial.detailhref;
             current_show = setInterval(function () {
                 // Set next slide
                 var image = pick_random();
@@ -128,6 +152,7 @@ permalink: /slideshow/
                 nextSlide.alt = image.title;
                 title.innerText = image.title; // Image title
                 date.innerText = image.date;
+                link.href = image.detailhref;
                 // Hide previous slide
                 currentSlide.classList.remove("fade-in");
                 currentSlide.classList.add("fade-out");
