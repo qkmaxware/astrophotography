@@ -1,4 +1,4 @@
-# Combines aliases.yaml + extern.yaml + simplifies catalogues.yaml
+# Solar System Catalog
 Sun:
   uid: Sun
   name: Sun
@@ -691,3 +691,11 @@ C34:
   catalogues:
     NGC: NGC 6960
     Caldwell: Caldwell 34
+
+# NGC Catalog
+NGC281:
+  uid: NGC281 
+  name: Pacman Nebula
+  href: https://en.wikipedia.org/wiki/NGC_281
+  catalogues:
+    NGC: NGC 281
