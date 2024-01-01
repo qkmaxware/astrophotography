@@ -1,0 +1,26 @@
+.w3-arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .w3-arrow.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .w3-arrow.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .w3-arrow.up {
+    transform: rotate(-135deg);
+    -webkit-transform: translate(0, 3px) rotate(-135deg);
+  }
+  
+  .w3-arrow.down {
+    transform: rotate(45deg);
+    -webkit-transform: translate(0, -3px) rotate(45deg);
+  }
