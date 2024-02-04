@@ -6,6 +6,8 @@
   order: 800
 - name: camera
   order: 700
+- name: focuser
+  order: 4
 - name: barlow
   order: 3
 - name: reducer
