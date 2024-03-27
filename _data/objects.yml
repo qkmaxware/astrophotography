@@ -691,6 +691,21 @@ C34:
   catalogues:
     NGC: NGC 6960
     Caldwell: Caldwell 34
+C49:
+  uid: C49
+  name: Rosette Nebula
+  href: https://en.wikipedia.org/wiki/Rosette_Nebula
+  catalogues: 
+    NGC: NGC 2237
+    Caldwell: Caldwell 49
+C50:
+  uid: C50
+  name: Rosette Nebula Satellite Cluster
+  href: https://en.wikipedia.org/wiki/NGC_2244
+  catalogues: 
+    NGC: NGC 2244
+    Caldwell: Caldwell 50
+
 
 # NGC Catalog
 NGC281:
