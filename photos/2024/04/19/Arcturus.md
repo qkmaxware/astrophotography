@@ -9,7 +9,7 @@ gear:
 - ref: zwoeaf
 - ref: asi662
   settings:
-    exposure: 60s
+    exposure: 3s
     gain: 252
     binning: 1x
     frames:
