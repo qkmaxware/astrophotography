@@ -20,3 +20,7 @@ NGC:
 Caldwell:
   icon: galaxy
   extern: https://en.wikipedia.org/wiki/Caldwell_catalogue
+
+Hipparcos:
+  icon: star
+  extern: https://en.wikipedia.org/wiki/Hipparcos

@@ -190,6 +190,10 @@ i.icon.satellite {
     background-image: url("icons/satellite.svg"); 
 }
 
+i.icon.star {
+    background-image: url("icons/star.svg"); 
+}
+
 i.icon.left {
     background-image: url("icons/chevron-left.svg"); 
 }

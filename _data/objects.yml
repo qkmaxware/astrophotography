@@ -1,4 +1,5 @@
-# Solar System Catalog
+#region DSO
+#region Solar System Catalog
 Sun:
   uid: Sun
   name: Sun
@@ -61,8 +62,9 @@ Neptune:
   href: https://en.wikipedia.org/wiki/Neptune
   catalogues: 
     Solar System: Neptune
+#endregion
 
-# Messier Catalog
+#region Messier Catalog
 M1:
   uid: M1
   href: https://en.wikipedia.org/wiki/Crab_Nebula
@@ -644,8 +646,9 @@ M110:
   uid: M110 
   catalogues:
     NGC: NGC 205
+#endregion
 
-# Caldwell Catalog
+#region Caldwell Catalog
 C11:
   uid: C11
   name: Bubble Nebula
@@ -705,12 +708,23 @@ C50:
   catalogues: 
     NGC: NGC 2244
     Caldwell: Caldwell 50
+#endregion
 
-
-# NGC Catalog
+#region NGC Catalog
 NGC281:
   uid: NGC281 
   name: Pacman Nebula
   href: https://en.wikipedia.org/wiki/NGC_281
   catalogues:
     NGC: NGC 281
+#endregion
+#endregion DSO
+
+#region Stars
+Arcturus:   
+  uid: Arcturus
+  name: Arcturus
+  href: https://en.wikipedia.org/wiki/Arcturus
+  catalogues: 
+    Hipparcos: HIP 69673
+#endregion Stars
