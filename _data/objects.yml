@@ -532,8 +532,10 @@ M87:
     Messier: M 87
 M88:
   uid: M88
+  href: https://en.wikipedia.org/wiki/Messier_88
   catalogues:
     NGC: NGC 4501
+    Messier: M 88
 M89:
   uid: M89
   catalogues:
