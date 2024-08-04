@@ -1,3 +1,15 @@
+#region Satellites
+ISS:
+  uid: ISS
+  name: International Space Station
+  href: https://en.wikipedia.org/wiki/International_Space_Station
+  description: |-
+    
+  catalogues: 
+    Satellites: ISS
+
+#endregion Satellites
+
 #region DSO
 #region Solar System Catalog
 Sun:
