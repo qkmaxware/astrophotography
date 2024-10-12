@@ -1,0 +1,252 @@
+<html>
+    <head>
+        
+<title>Slideshow | Astrophotography</title>
+
+<meta charset="UTF-8">
+<meta name="description" content="A site dedicated to hosting, organizing, and cataloguing all the photos I've taken of astronomical objects.  ">
+<meta name="author" content="https://github.com/qkmaxware">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="180x180" href="/astrophotography/static/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/astrophotography/static/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/astrophotography/static/favicon/favicon-16x16.png">
+<link rel="manifest" href="/astrophotography/static/favicon/site.webmanifest">
+<link rel="mask-icon" href="/astrophotography/static/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/astrophotography/static/favicon/favicon.ico">
+<link rel="alternate" type="application/rss+xml" href="https://qkmaxware.github.io/feed.xml" />
+<meta name="msapplication-TileColor" content="#333333">
+<meta name="msapplication-TileImage" content="/astrophotography/static/favicon/mstile-144x144.png">
+<meta name="msapplication-config" content="/astrophotography/static/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="/astrophotography/css/w3.css">
+<link rel="stylesheet" href="/astrophotography/css/w3.timeline.css"> 
+<link rel="stylesheet" href="/astrophotography/css/w3.arrows.css"> 
+<link rel="stylesheet" href="/astrophotography/css/site.css">
+<link rel="stylesheet" href="/astrophotography/css/code.css">
+<link rel="stylesheet" href="/astrophotography/css/theme.css">
+
+<script src="/astrophotography/js/site.js"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: black;
+                -webkit-user-select: none; /* Safari */
+                -ms-user-select: none; /* IE 10 and IE 11 */
+                user-select: none; /* Standard syntax */
+            }
+    
+            .full {
+                width: 100vw;
+                height: 100vh;
+            }
+    
+            .full img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+            }
+
+            .full .restart {
+                width: 100vw;
+                height: 100vh;
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            a {
+                cursor: pointer;
+            }
+    
+            .full .titlebar {
+                position: absolute;
+                z-index: 100;
+                top: 12px;
+                left: 12px;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 6px 12px;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            }
+
+            .full .date {
+                font-size: small;
+            }  
+
+            .attribution {
+                position: absolute;
+                z-index: 101;
+                bottom: 12px;
+                left: 12px;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 6px 12px;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            }
+
+            .fade-in {
+                visibility: visible;
+                opacity: 1;
+                transition: opacity 1s linear;
+            }
+    
+            .fade-out {
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0s 1s, opacity 1s linear;
+            }
+        </style>
+    </head>
+
+
+<body>
+    <div class="full">
+        <div class="restart" onclick="init_default()" style="cursor: pointer;" title="click to change image" ></div>
+        <img id="slide1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="Second Slide" draggable="false" ondragstart="false">
+        <img id="slide0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" alt="First Slide" draggable="false" ondragstart="false">
+        <div class="titlebar">
+            <a id="url" href="#">
+                <span id="title">Image Title</span><br>
+                <span id="date" class="date">Image Date</span>
+            </a>
+        </div>
+        <span id="legal" class="attribution">&copy; 2022-2024; All rights reserved by author.</span>
+    </div>
+    <script>
+        var default_images = [
+            [
+                { title: "Sun", date: "2024-10-11", detailhref: "/astrophotography/photos/2024/10/11/Sun.html", url: "/astrophotography/photos/2024/10/11/Sun.html/../sun.png", palette: "H-Alpha Inverted/Colourized" },{ title: "Sun", date: "2023-06-24", detailhref: "/astrophotography/photos/2023/06/24/Sun.html", url: "/astrophotography/photos/2023/06/24/Sun.html/../sun.png", palette: "R/G/B" },
+            ],[
+                { title: "M15 Great Pegasus Cluster", date: "2024-09-24", detailhref: "/astrophotography/photos/2024/09/24/M15.html", url: "/astrophotography/photos/2024/09/24/M15.html/../M15.jpg", palette: "R/G/B" },
+            ],[
+                { title: "ISS International Space Station", date: "2024-08-04", detailhref: "/astrophotography/photos/2024/08/04/ISS.html", url: "/astrophotography/photos/2024/08/04/ISS.html/../solar_transit.png", palette: "R/G/B" },
+            ],[
+                { title: "M88 ", date: "2024-05-08", detailhref: "/astrophotography/photos/2024/05/08/M88.html", url: "/astrophotography/photos/2024/05/08/M88.html/../m88.jpg", palette: "R/G/B" },
+            ],[
+                { title: "Arcturus", date: "2024-04-19", detailhref: "/astrophotography/photos/2024/04/19/Arcturus.html", url: "/astrophotography/photos/2024/04/19/Arcturus.html/../Arcturus.jpg", palette: "R/G/B" },
+            ],[
+                { title: "M44 Beehive Cluster", date: "2024-04-17", detailhref: "/astrophotography/photos/2024/04/17/M44.html", url: "/astrophotography/photos/2024/04/17/M44.html/../Beehive.jpg", palette: "Ha/Oiii/Oiii" },
+            ],[
+                { title: "C49 Rosette Nebula", date: "2024-03-26", detailhref: "/astrophotography/photos/2024/03/26/C49.html", url: "/astrophotography/photos/2024/03/26/C49.html/../C49.jpg", palette: "Ha/Oiii/Oiii" },
+            ],[
+                { title: "M42 Orion's Nebula", date: "2024-02-04", detailhref: "/astrophotography/photos/2024/02/03/M42.html", url: "/astrophotography/photos/2024/02/03/M42.html/../M42.jpg", palette: "R/G/B" },{ title: "M42 Orion's Nebula", date: "2023-03-04", detailhref: "/astrophotography/photos/2023/03/04/M42.html", url: "/astrophotography/photos/2023/03/04/M42.html/../M42.png", palette: "R/G/B" },
+            ],[
+                { title: "M1 Crab Nebula", date: "2023-12-31", detailhref: "/astrophotography/photos/2023/12/31/M1.html", url: "/astrophotography/photos/2023/12/31/M1.html/../1704092263899_gimp.jpg", palette: "R/G/B" },{ title: "M1 Crab Nebula", date: "2023-03-29", detailhref: "/astrophotography/photos/2023/03/29/M1.html", url: "/astrophotography/photos/2023/03/29/M1.html/../Crab Nebula.3.jpeg", palette: "R/G/B" },{ title: "M1 Crab Nebula", date: "2023-03-20", detailhref: "/astrophotography/photos/2023/03/20/M1.html", url: "/astrophotography/photos/2023/03/20/M1.html/../M1_Greyscale.png", palette: "R/G/B" },
+            ],[
+                { title: "NGC281 Pacman Nebula", date: "2023-11-14", detailhref: "/astrophotography/photos/2023/11/14/NGC281.html", url: "/astrophotography/photos/2023/11/14/NGC281.html/../NGC281_gimp.jpg", palette: "Ha/Oiii/Oiii" },
+            ],[
+                { title: "C19 Cocoon Nebula", date: "2023-11-08", detailhref: "/astrophotography/photos/2023/11/08/C19.html", url: "/astrophotography/photos/2023/11/08/C19.html/../coccoon.gimp.jpeg", palette: "Ha/Oiii/Oiii" },{ title: "C19 Cocoon Nebula", date: "2023-10-20", detailhref: "/astrophotography/photos/2023/10/20/C19.html", url: "/astrophotography/photos/2023/10/20/C19.html/../C19.jpeg", palette: "R/G/B" },
+            ],[
+                { title: "C20 North America Nebula", date: "2023-10-30", detailhref: "/astrophotography/photos/2023/10/30/C20.html", url: "/astrophotography/photos/2023/10/30/C20.html/../c20.gimp.jpeg", palette: "Ha/Ha/Oiii" },{ title: "C20 North America Nebula", date: "2023-10-12", detailhref: "/astrophotography/photos/2023/10/12/C20.html", url: "/astrophotography/photos/2023/10/12/C20.html/../c20.gimp.png", palette: "R/G/B" },
+            ],[
+                { title: "C11 Bubble Nebula", date: "2023-10-23", detailhref: "/astrophotography/photos/2023/10/23/C11.html", url: "/astrophotography/photos/2023/10/23/C11.html/../C11.jpeg", palette: "Ha/Oiii/-" },{ title: "C11 Bubble Nebula", date: "2023-10-20", detailhref: "/astrophotography/photos/2023/10/20/C11.html", url: "/astrophotography/photos/2023/10/20/C11.html/../C11.jpeg", palette: "R/G/B" },{ title: "C11 Bubble Nebula", date: "2023-10-18", detailhref: "/astrophotography/photos/2023/10/18/C11.html", url: "/astrophotography/photos/2023/10/18/C11.html/../3072DDC8-F1EE-4B07-8640-C491DAEAB7A7.jpeg", palette: "Ha/Oiii/-" },
+            ],[
+                { title: "M33 Triangulum Galaxy", date: "2023-10-20", detailhref: "/astrophotography/photos/2023/10/20/M33.html", url: "/astrophotography/photos/2023/10/20/M33.html/../M33.jpeg", palette: "R/G/B" },
+            ],[
+                { title: "C34 Western Veil Nebula", date: "2023-10-20", detailhref: "/astrophotography/photos/2023/10/20/C34.html", url: "/astrophotography/photos/2023/10/20/C34.html/../C34.jpeg", palette: "R/G/B" },
+            ],[
+                { title: "C33 Eastern Veil Nebula", date: "2023-10-18", detailhref: "/astrophotography/photos/2023/10/18/C33.html", url: "/astrophotography/photos/2023/10/18/C33.html/../E75A592E-784C-4F99-A494-66B4EF876906.jpeg", palette: "Ha/Oiii/-" },{ title: "C33 Eastern Veil Nebula", date: "2023-10-12", detailhref: "/astrophotography/photos/2023/10/12/C33.html", url: "/astrophotography/photos/2023/10/12/C33.html/../c33.gimp.png", palette: "R/G/B" },
+            ],[
+                { title: "C27 Crescent Nebula", date: "2023-10-18", detailhref: "/astrophotography/photos/2023/10/18/C27.html", url: "/astrophotography/photos/2023/10/18/C27.html/../2BCC078C-9A6E-406B-BEF9-731347FEBE70.jpeg", palette: "Ha/Oiii/-" },
+            ],[
+                { title: "M27 Dumbbell Nebula", date: "2023-10-11", detailhref: "/astrophotography/photos/2023/10/11/M27.html", url: "/astrophotography/photos/2023/10/11/M27.html/../46min 60s 252gain.gimp.png", palette: "R/G/B" },{ title: "M27 Dumbbell Nebula", date: "2023-09-30", detailhref: "/astrophotography/photos/2023/09/30/M27.html", url: "/astrophotography/photos/2023/09/30/M27.html/../M 27 - stacked, stretched, cropped.png", palette: "R/G/B" },
+            ],[
+                { title: "Saturn", date: "2023-08-12", detailhref: "/astrophotography/photos/2023/08/12/Saturn.html", url: "/astrophotography/photos/2023/08/12/Saturn.html/../StackPercent25_Ap21_Drizzle30_Sharpened_Wavelet_Crop.png", palette: "R/G/B" },{ title: "Saturn", date: "2022-10-01", detailhref: "/astrophotography/photos/2022/10/01/Saturn.html", url: "/astrophotography/photos/2022/10/01/Saturn.html/../Saturn 2022-10-01 20_54_35_Planet_50_Registax.png", palette: "R/G/B" },
+            ],[
+                { title: "M57 Ring Nebula", date: "2023-08-05", detailhref: "/astrophotography/photos/2023/08/05/M57.html", url: "/astrophotography/photos/2023/08/05/M57.html/../Light_AutoSave_Stack_Stretched2.png", palette: "R/G/B" },{ title: "M57 Ring Nebula", date: "2023-08-03", detailhref: "/astrophotography/photos/2023/08/03/M57.html", url: "/astrophotography/photos/2023/08/03/M57.html/../Light_AutoSave_Stack.jpeg", palette: "R/G/B" },
+            ],[
+                { title: "M17 Lobster Nebula", date: "2023-08-05", detailhref: "/astrophotography/photos/2023/08/05/M17.html", url: "/astrophotography/photos/2023/08/05/M17.html/../Light_AutoSave_Stack_Stretched_ColourBalanced.png", palette: "R/G/B" },
+            ],[
+                { title: "M101 Pinwheel Galaxy", date: "2023-07-03", detailhref: "/astrophotography/photos/2023/07/03/M101.html", url: "/astrophotography/photos/2023/07/03/M101.html/../pinwheel.2023-07-04.png", palette: "R/G/B" },{ title: "M101 Pinwheel Galaxy", date: "2023-06-23", detailhref: "/astrophotography/photos/2023/06/23/M101.html", url: "/astrophotography/photos/2023/06/23/M101.html/../pinwheel.png", palette: "R/G/B" },
+            ],[
+                { title: "M104 Sombrero Galaxy", date: "2023-05-12", detailhref: "/astrophotography/photos/2023/05/12/M104.html", url: "/astrophotography/photos/2023/05/12/M104.html/../Autosave_-_Edited_1.jpeg", palette: "R/G/B" },
+            ],[
+                { title: "M51 Whirlpool Galaxy", date: "2023-05-03", detailhref: "/astrophotography/photos/2023/05/03/M51.html", url: "/astrophotography/photos/2023/05/03/M51.html/../Autosave_-_Balanced_02.jpeg", palette: "R/G/B" },
+            ],[
+                { title: "M81 Bode's Galaxy", date: "2023-04-01", detailhref: "/astrophotography/photos/2023/04/01/M81.html", url: "/astrophotography/photos/2023/04/01/M81.html/../Stacked.LevelsAdjusted.jpeg", palette: "R/G/B" },
+            ],[
+                { title: "M45 Pleiades", date: "2023-03-19", detailhref: "/astrophotography/photos/2023/03/19/M45.html", url: "/astrophotography/photos/2023/03/19/M45.html/../Pleiades_1080p.jpeg", palette: "R/G/B" },
+            ],[
+                { title: "M43 DeMairan's Nebula", date: "2023-03-04", detailhref: "/astrophotography/photos/2023/03/04/M43.html", url: "/astrophotography/photos/2023/03/04/M43.html/../M42.png", palette: "R/G/B" },
+            ],[
+                { title: "Mars", date: "2022-12-16", detailhref: "/astrophotography/photos/2022/12/16/Mars.html", url: "/astrophotography/photos/2022/12/16/Mars.html/../image_2022_12_16T05_28_22_086Z-1.png", palette: "R/G/B" },
+            ],[
+                { title: "Jupiter", date: "2022-09-29", detailhref: "/astrophotography/photos/2022/09/29/Jupiter.html", url: "/astrophotography/photos/2022/09/29/Jupiter.html/../Jupiter 2022-09-29 22_23_19_Planet_50_Sharp100_B1.0_C1.0_S1_N50.jpg", palette: "R/G/B" },
+            ],[
+                { title: "Moon", date: "2022-05-12", detailhref: "/astrophotography/photos/2022/05/12/Moon.html", url: "/astrophotography/photos/2022/05/12/Moon.html/../C0004 Stacked Leveled-1.png", palette: "R/G/B" },
+            ],
+        ];
+        var units = {
+            hours: 3.6e+6,
+            minutes: 60000,
+            seconds: 1000,
+            milliseconds: 1
+        };
+        var default_delay = 30 * units.seconds;
+
+        var current_show;
+
+        function init_show(images, delay) {
+            if (current_show) {
+                clearInterval(current_show);
+            }
+
+            var title = document.getElementById("title");
+            var date = document.getElementById("date");
+            var link = document.getElementById("url");
+            var slide0 = document.getElementById("slide0");
+            var slide1 = document.getElementById("slide1");
+            var currentSlide = slide0;
+            var nextSlide = slide1;
+
+            function pick_random() {
+                var index = Math.floor(Math.random() * images.length);
+                var img_group = images[index];
+                var index = Math.floor(Math.random() * img_group.length);
+                return img_group[index];
+            }
+
+            var initial = pick_random();
+            currentSlide.src = initial.url;
+            currentSlide.classList.remove("fade-out");
+            currentSlide.classList.add("fade-in");
+            nextSlide.classList.remove("fade-in");
+            nextSlide.classList.add("fade-out");
+            currentSlide.alt = initial.title;
+            title.innerText = initial.title; // Image title
+            date.innerText = initial.date;
+            link.href = initial.detailhref;
+            current_show = setInterval(function () {
+                // Set next slide
+                var image = pick_random();
+                nextSlide.src = image.url;
+                nextSlide.classList.remove("fade-out");
+                nextSlide.classList.add("fade-in");
+                nextSlide.alt = image.title;
+                title.innerText = image.title; // Image title
+                date.innerText = image.date;
+                link.href = image.detailhref;
+                // Hide previous slide
+                currentSlide.classList.remove("fade-in");
+                currentSlide.classList.add("fade-out");
+                // Swap current & next for next iteration
+                var temp = currentSlide;
+                currentSlide = nextSlide;
+                nextSlide = temp;
+            }, delay);
+        }
+        function init_default() {
+            init_show(default_images, default_delay);
+        }
+        init_default();
+    </script>
+</body>
+
+</html>
