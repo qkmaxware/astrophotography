@@ -4,7 +4,7 @@ device: telescope
 image: /static/equipment/orbitor.png
 manufacturer: Orbitor
 model: 7030
-kind: Reflector
+kind: Refractor
 focal length:
     units: mm
     length: 300

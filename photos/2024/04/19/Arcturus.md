@@ -16,7 +16,6 @@ gear:
       units: ""
       lights: 1
       darks: 0
-      lights: 0
       bias: 50
 - ref: optilonguhc
 targets:
