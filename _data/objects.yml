@@ -731,6 +731,13 @@ NGC281:
   href: https://en.wikipedia.org/wiki/NGC_281
   catalogues:
     NGC: NGC 281
+IC443:
+  uid: IC443
+  name: Jellyfish Nebula
+  href: https://en.wikipedia.org/wiki/IC_443
+  catalogues:
+    NGC: IC443
+    Sharpless: Sharpless 248
 #endregion
 #endregion DSO
 
