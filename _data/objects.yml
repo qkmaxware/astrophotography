@@ -738,6 +738,13 @@ IC443:
   catalogues:
     NGC: IC443
     Sharpless: Sharpless 248
+IC434:
+  uid: IC434
+  name: Horsehead Nebula
+  href: https://en.wikipedia.org/wiki/Horsehead_Nebula
+  catalogues:
+    NGC: IC434
+    Barnard: B33
 #endregion
 #endregion DSO
 
