@@ -126,12 +126,20 @@ permalink: /slideshow/
             var currentSlide = slide0;
             var nextSlide = slide1;
 
-            function pick_random() {
-                var index = Math.floor(Math.random() * images.length);
-                var img_group = images[index];
-                var index = Math.floor(Math.random() * img_group.length);
-                return img_group[index];
+            function make_random_generator(array) {
+                // Random generator that doesn't repeat until all objects have been done
+                var copy = array.slice(0);
+                return function() {
+                    if (copy.length < 1) { copy = array.slice(0); }
+                    var index = Math.floor(Math.random() * copy.length);
+                    var img_group = copy[index];
+                    copy.splice(index, 1);
+                    var index = Math.floor(Math.random() * img_group.length);
+                    return img_group[index];
+                };
             }
+
+            var pick_random = make_random_generator(images);
 
             var initial = pick_random();
             currentSlide.src = initial.url;
