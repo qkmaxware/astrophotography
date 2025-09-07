@@ -671,6 +671,13 @@ C11:
     NGC: NGC 7635
     Caldwell: Caldwell 11
     Sharpless: Sharpless 162
+C12:
+  uid: C12
+  name: Fireworks Galaxy
+  href: https://en.wikipedia.org/wiki/NGC_6946
+  catalogues:
+    NGC: NGC 6946
+    Caldwell: Cadwell 12
 C19:
   uid: C19
   name: Cocoon Nebula
@@ -693,6 +700,12 @@ C27:
     NGC: NGC 6888
     Caldwell: Caldwell 27
     Sharpless: Sharpless 105
+C30:
+  uid: C30
+  href: https://en.wikipedia.org/wiki/NGC_7331
+  catalogues:
+    NGC: NGC 7331
+    Caldwell: Caldwell 30
 C33:
   uid: C33 
   name: Eastern Veil Nebula
