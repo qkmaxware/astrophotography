@@ -186,6 +186,10 @@ i.icon.galaxy {
     background-image: url("icons/galaxy.svg"); 
 }
 
+i.icon.comet {
+    background-image: url("icons/comet.svg"); 
+}
+
 i.icon.satellite {
     background-image: url("icons/satellite.svg"); 
 }

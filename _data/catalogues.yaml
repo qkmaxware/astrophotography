@@ -5,6 +5,10 @@ Solar System:
   icon: solar-system
   extern: https://en.wikipedia.org/wiki/Solar_System
 
+Comets:
+  icon: comet
+  extern: https://en.wikipedia.org/wiki/Comet
+
 Satellites:
   icon: satellite
   extern: https://en.wikipedia.org/wiki/Satellite
