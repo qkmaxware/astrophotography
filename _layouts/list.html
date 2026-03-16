@@ -1,0 +1,49 @@
+---
+layout: default
+---
+{% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | sort: 'date' | reverse  %}
+{% assign photo_groups = all_photos | group_by: "title" %}
+
+<header class="w3-center w3-bottombar w3-margin-bottom">
+    <h1>{{ page.title }}</h1>
+</header>
+
+<div id="gallery" class="w3-row-padding">
+    {% for item in items %}
+    <div class="w3-quarter w3-padding" data-target="{{ group.name }}">
+        <div class="w3-card panel">
+    {% assign group =  photo_groups | where_exp: "name", "name == item" %}
+    {% if group.size > 0 and group[0].items.size > 0 %}
+    {% assign photo = group[0].items[0]%}
+        <a href="{{site.baseurl}}{{group.items[0].url}}" style="height: 256px; overflow: clip; display: block;">
+            {% include thumbnail.html photo=photo %}
+        </a>
+        <div class="w3-container">
+            <p>
+                <b>{% include objectname.html photo=photo %}</b><br>
+                <small>updated: {{ photo.date }}</small>
+            </p>
+            <p>
+                {% if site.data.objects[photo.title] %}
+                <a class="w3-button flat" style="width: 100%;" href="{{site.baseurl}}/objects/{{group.name | downcase}}">About Object</a>
+                {% endif %}
+            </p>
+        </div>
+    {% else %}
+        <img style="width: 100%; height: 100%; object-fit: cover" src="{{site.baseurl}}/static/favicon/favicon.svg">
+        <div class="w3-container">
+            <p>
+                <b>{{ group.name }}</b><br>
+                <small>n/a</small>
+            </p>
+            <p>
+                {% if site.data.objects[photo.title] %}
+                <a class="w3-button flat" style="width: 100%;" href="{{site.baseurl}}/objects/{{group.name | downcase}}">About Object</a>
+                {% endif %}
+            </p>
+        </div>
+    {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>

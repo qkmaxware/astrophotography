@@ -35,6 +35,9 @@ collections:
   rigs:
     output: true
     permalink: /gear/config/:name
+  lists:
+    output: true
+    permalink: /lists/:name
 
 
 defaults:
@@ -59,7 +62,11 @@ defaults:
     type: "rigs"
   values:
     layout: "rig"
-
+- scope:
+    path: ""
+    type: "lists"
+  values:
+    layout: "list"
 
 # Build settings
 plugins:

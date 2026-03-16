@@ -1,0 +1,14 @@
+---
+layout: default
+title: Astrophotography Collections
+permalink: /collections.html
+---
+<div class="w3-container w3-center">
+    <h1>PHOTO COLLECTIONS</h1>
+</div>
+
+<div id="gallery" class="w3-row-padding">
+    {% for lst in site.lists %}
+    <a href="{{site.baseurl}}{{lst.url}}">{{ lst.title }}</a>
+    {% endfor %}
+</div>
