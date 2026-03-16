@@ -9,7 +9,7 @@ layout: default
 </header>
 
 <div id="gallery" class="w3-row-padding">
-    {% for item in items %}
+    {% for item in page.items %}
     <div class="w3-quarter w3-padding" data-target="{{ group.name }}">
         <div class="w3-card panel">
     {% assign group =  photo_groups | where_exp: "name", "name == item" %}
