@@ -11,8 +11,8 @@ ISS:
 #endregion Satellites
 
 #region Comets
-C/2025 A6:
-  uid: C/2025 A6
+C2025 A6:
+  uid: C2025 A6
   name: Lemmon
   href: https://en.wikipedia.org/wiki/C/2025_A6_(Lemmon)
   description: 
