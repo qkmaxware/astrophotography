@@ -9,10 +9,10 @@ permalink: /collections.html
 
 <div id="gallery" class="w3-padding">
     {% for lst in site.lists %}
-    <div class="w3-panel w3-leftbar">
+    <div class="w3-panel panel w3-leftbar">
         <h3><a href="{{site.baseurl}}{{lst.url}}">{{ lst.title }}</a></h3>
         <hr>
-        <div style="text-align: right;">
+        <div class="w3-container">
             {{lst.items.size}} items
         </div>
         <p>{{ lst.description }}</p>
