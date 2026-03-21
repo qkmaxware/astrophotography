@@ -4,6 +4,6 @@ layout: null
 {% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | where_exp:"asset", "asset.image" | sort: 'date' | reverse  %}
 {% assign photo_groups = all_photos | group_by: "title" %}
 [
-    {% for group in photo_groups %}{% assign asset = group.items[0]%}{ title: "{% include objectname.html photo=asset %}", date: "{{ asset.date }}", detailhref: "{{site.baseurl}}{{asset.url}}", url: "{{site.baseurl}}{{asset.url}}/../{{ asset.image }}", palette: "{%if asset.palette %}{{asset.palette}}{% else %}?{% endif %}" }{% unless forloop.last %},{% endunless %}
+    {% for group in photo_groups %}{% assign asset = group.items[0]%}{ "title": "{% include objectname.html photo=asset %}", "date": "{{ asset.date }}", "detailhref": "{{site.baseurl}}{{asset.url}}", "url": "{{site.baseurl}}{{asset.url}}/../{{ asset.image }}", "palette": "{%if asset.palette %}{{asset.palette}}{% else %}?{% endif %}" }{% unless forloop.last %},{% endunless %}
     {% endfor %}
 ]
