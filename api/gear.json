@@ -1,0 +1,7 @@
+---
+---
+{% assign devices = site.equipment | where_exp:"item","item.retired == nil" %}
+[
+    {% for dev in devices %}{ "type": "{{ dev.device }}", "model": "{{ dev.model }}", "manufacturer": "{{ dev.manufacturer }}", "url": "{{site.baseurl}}{{dev.url}}" }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+]
