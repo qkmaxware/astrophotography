@@ -1,0 +1,41 @@
+{
+    "updated": "2026-03-27",
+    "copyright": "© 2022-2026; All rights reserved by author.",
+    "endpoints": [
+        {
+            "name": "gear",
+            "description": "List all active gear.",
+            "url": "/astrophotography/api/gear.json",
+            "schema": {
+                "type": { "type": "string", "description": "Device type" },
+                "model": { "type": "string", "description": "Product name, model name, or version" },
+                "manufacturer": { "type": "string", "description": "Company which creates the product" },
+                "detailhref": { "type": "string", "description": "Path to device details on this website" }
+            }
+        },
+        {
+            "name": "photos",
+            "description": "List all photos taken.",
+            "url": "/astrophotography/api/photos.json",
+            "schema": {
+                "target-id": { "type": "string", "description": "Unique id of the target of the image" },
+                "date": { "type": "string", "description": "Date the photo was taken" },
+                "url": { "type": "string", "description": "Path to the image on this website" },
+                "palette": { "type": "string", "description": "Name of the colour palette used in the image" }
+            }
+        }
+        {
+            "name": "targets",
+            "description": "List all targets that have been imaged, most recent photo is recorded for each target.",
+            "url": "/astrophotography/api/photos.json",
+            "schema": {
+                "id": { "type": "string", "description": "Unique id of the target" },
+                "title": { "type": "string", "description": "Name of the target" },
+                "updated": { "type": "string", "description": "Date of the most recent image of the target" },
+                "detailhref": { "type": "string", "description": "Path to the object details on this website" },
+                "url": { "type": "string", "description": "Path to the most recent image of the target on this website" },
+                "palette": { "type": "string", "description": "Name of the colour palette used in the image" }
+            }
+        }
+    ]
+}

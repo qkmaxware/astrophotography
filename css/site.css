@@ -1,0 +1,74 @@
+img.gallery {
+    width: 100%;
+    object-fit: cover;
+}
+
+img.preview {
+    width: 100%;
+    object-fit: contain;
+}
+
+div.preview {
+  width: 100%;
+  padding-top: 56.25%;
+  object-fit: contain;
+  position: relative; 
+  margin-top: 16px;
+}
+
+div.preview iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+.icon {
+  width: 1em;
+  margin-right: 6px;
+}
+
+.gear img:not(.icon) {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.horizontal-gallery {
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  white-space: nowrap;
+}
+
+.horizontal-gallery .image {
+  display: inline-block;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 256px;
+  height: 141px;
+}
+
+.horizontal-gallery .image img { 
+  object-fit: cover;
+}
+
+.horizontal-gallery .image img.contain { 
+  object-fit: contain !important;
+}
+
+
+.align-right {
+    text-align: right !important;
+}

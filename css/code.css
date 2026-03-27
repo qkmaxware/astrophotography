@@ -1,0 +1,74 @@
+/* Default settings for code blocks */
+pre code {
+  display: block;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  line-height: 1.5;
+  border: 1px solid #151617;
+  padding: 10px;
+}
+
+/* Comments */
+pre code span.c {
+    color: #6A9955
+}
+
+pre code span.c1 {
+    color: #6A9955
+}
+
+pre code span.c2 {
+    color: #6A9955
+}
+
+pre code span.c3 {
+    color: #6A9955
+}
+
+/* Keywords */
+pre code span.k {
+    color: #569CD6
+}
+pre code span.kt {
+    color: #569CD6
+}
+
+/* Numbers */
+pre code span.m {
+    color: #d0f7bd
+}
+
+/* Strings */
+pre code span.s {
+    color: #CE9178
+}
+pre code span.s1 {
+    color: #CE9178
+}
+
+pre code span.s2 {
+    color: #CE9178
+}
+
+pre code span.s3 {
+    color: #CE9178
+}
+
+pre code span.si {
+    color: #4EC9B0
+}
+
+/* Identifiers */
+pre code span.n {       /* Generic */
+    color: rgb(149, 221, 253)
+}
+pre code span.nb {  
+    color: #D7BA7D
+}
+pre code span.nf {      /* Functions */
+    color: #D7BA7D
+}
+pre code span.nc {      /* Classes */
+    color: #D7BA7D
+}
