@@ -3,6 +3,6 @@ layout: null
 ---
 {% assign all_photos = site.pages | where_exp:"asset", "asset.path contains 'photos/'" | where_exp:"asset", "asset.image" | sort: 'date' | reverse  %}
 [
-    {% for photo in all_photos %}{ "date": "{{ asset.date }}", "url": "{{site.baseurl}}{{asset.url}}/../{{ asset.image }}", "palette": "{%if asset.palette %}{{asset.palette}}{% else %}?{% endif %}" }{% unless forloop.last %},{% endunless %}
+    {% for photo in all_photos %}{ "target-id": "{{ photo.title }}", "date": "{{ photo.date }}", "url": "{{site.baseurl}}{{photo.url}}/../{{ photo.image }}", "palette": "{%if photo.palette %}{{photo.palette}}{% else %}?{% endif %}" }{% unless forloop.last %},{% endunless %}
     {% endfor %}
 ]
